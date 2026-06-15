@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Регламент разработки - Soda</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0420\u0435\u0433\u043b\u0430\u043c\u0435\u043d\u0442 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438";
+        var mkdocs_page_input_path = "reglament.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Soda
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Домашняя</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../three_contur/">Обоснование трех контуров</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operators/">Операторы языка 1с(рус + англ)</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Регламент разработки</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Общие правила разработки</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Соглашение об именовании переменных и подпрограмм</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">Правила доработки конфигурации</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#postgresql">Особенности разработки для PostgreSQL</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Использование подсистемы с именем проекта</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Оформление доработок</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Снятие с поддержки</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Доработка метаданных</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">Правила создания общих модулей</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Модули менеджеров</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_11">Доработка форм</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_12">Роли</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_13">Разработка регламентных заданий</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_14">Обработчики обновления данных</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Soda</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Регламент разработки</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Основные правила разработки</h1>
+<h2 id="_2">Общие правила разработки</h2>
+<ul>
+<li>Доработки осуществляются в основной конфигурации и расширении.</li>
+</ul>
+<blockquote>
+<p>В расширении дорабатываются модули объектов, менеджеров, форм типовых объектов, Типовые общие модули с использованием аннотации <code>&amp;ChangeAndControl</code>, <code>&amp;Before</code> и <code>&amp;After</code>. Использование аннотации <code>&amp;InsteadOf</code> не допускается. <a href="https://its.1c.ru/db/v8325doc#bookmark:dev:TI000001513">Правила разработки в расширении</a></p>
+<p>Во всех остальных случаях доработки осуществляются в основной конфигурации.</p>
+</blockquote>
+<ul>
+<li>
+<p>Префикс проекта: <strong><code>rox_</code></strong></p>
+</li>
+<li>
+<p>Синоним нового объекта должен оканчиваться на "(rox)"</p>
+</li>
+<li>
+<p>Все новые объекты метаданных создаются с префиксом проекта.</p>
+</li>
+<li>
+<p>Реквизиты объектов добавляются с префиксом проекта, доработка существующих форм — программная, новые формы добавляются через конструктор форм.</p>
+</li>
+</ul>
+<blockquote>
+<p>Создание новых форм автоматически не допускается.</p>
+<p>В методе <code>PrepareForm</code> допускается только добавление реквизитов/элементов, любая видимость/доступность/условное оформление — в отдельных методах.</p>
+</blockquote>
+<ul>
+<li>
+<p>Стандарты, используемые в работе над проектом:</p>
+</li>
+<li>
+<p><a href="https://its.1c.ru/db/v8std#content:469:hdoc">Правила создания общих модулей</a>, <a href="https://its.1c.ru/db/v8std#content:456:hdoc">Тексты модулей</a></p>
+</li>
+<li><a href="https://its.1c.ru/db/v8std#content:647:hdoc">Имена процедур и функций</a>, <a href="https://its.1c.ru/db/v8std/content/454/hdoc">Правила образования имен переменных</a>. При доработке в типовых объектах все новые процедуры и функции создаются с префиксом проекта, например <code>rox_Documents</code>.</li>
+<li><a href="https://its.1c.ru/db/v8std#content:455:hdoc">Структура модуля</a>, <a href="https://its.1c.ru/db/v8std#content:439:hdoc">Директивы компиляции и инструкции препроцессора</a>. Все модули должны быть с оформлением областями.</li>
+<li><a href="https://its.1c.ru/db/v8std#content:689:hdoc">Настройка ролей и прав доступа</a>.</li>
+<li></li>
+</ul>
+<h4 id="_3">Соглашение об именовании переменных и подпрограмм</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Назначение</th>
+<th style="text-align: left;">Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Get</code></td>
+<td style="text-align: left;">Получить значение (функция)</td>
+<td style="text-align: left;"><code>GetRemaining()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Set</code></td>
+<td style="text-align: left;">Установить значение (процедура)</td>
+<td style="text-align: left;"><code>SetParameters()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Is</code></td>
+<td style="text-align: left;">Логическое значение (функция/переменная)</td>
+<td style="text-align: left;"><code>IsDocument()</code>, <code>IsAvailable</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Has</code></td>
+<td style="text-align: left;">Имеет что-то</td>
+<td style="text-align: left;"><code>HasChildren</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Can</code></td>
+<td style="text-align: left;">Может выполнить действие</td>
+<td style="text-align: left;"><code>CanEdit</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Contains</code></td>
+<td style="text-align: left;">Содержит элементы</td>
+<td style="text-align: left;"><code>ContainsErrors</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Типовые роли не меняются, все необходимые права настраиваются в рамках новых ролей.</p>
+</blockquote>
+<ul>
+<li>
+<p>Оформление доработок осуществляется согласно п. 2.2 текущего регламента.</p>
+</li>
+<li>
+<p>Для программного интерфейса описание метода обязательно.</p>
+</li>
+<li>
+<p>Программный интерфейс с директивой <code>Export</code> предполагает регулярное использование.</p>
+</li>
+<li>
+<p>Комментарии и метки при помещении в хранилище обязательны.</p>
+</li>
+<li>
+<p>Задачи в работу только от ТА, если не оговорено иное.</p>
+</li>
+<li>
+<p>В хранилище помещается только предварительно протестированная и проверенная синтаксис-проверкой конфигуратора задача. Не допускается помещение в хранилище доработок с ошибками синтаксиса, за исключением случаев, возникающих при использовании методов расширения.</p>
+</li>
+<li>
+<p>Сообщения, заголовки и иная информация для пользователя должна выводиться с использованием функции <code>NStr()</code> по стандарту <a href="https://its.1c.ru/db/v8std#content:761:hdoc">Интерфейсные тексты в коде: требования по локализации</a>.</p>
+</li>
+</ul>
+<h2 id="_4">Правила доработки конфигурации</h2>
+<h3 id="postgresql">Особенности разработки для PostgreSQL</h3>
+<blockquote>
+<p>Так как в качестве СУБД используется PostgreSQL, необходимо учитывать особенности, влияющие на производительность:</p>
+<p>1.1.1. Использование конструкции <code>FULL OUTER JOIN</code></p>
+<p>В СУБД PostgreSQL реализована только частичная поддержка <code>FULL OUTER JOIN</code> (ERROR: "FULL JOIN is only supported with mergejoinable join conditions"). Для реализации полной поддержки <code>FULL OUTER JOIN</code> при работе 1С:Предприятия 8 с PostgreSQL подобный запрос трансформируется в другую форму с эквивалентным результатом, однако эффективность использования конструкции <code>FULL OUTER JOIN</code> снижается.</p>
+<p>В связи с этим не рекомендуется использовать <code>FULL OUTER JOIN</code> при работе с PostgreSQL. В большинстве случаев без использования этой конструкции можно обойтись, переписав исходный запрос.</p>
+<p>1.1.2. При работе с PostgreSQL использование соединения с виртуальной таблицей <code>SliceLast</code> может приводить к существенному снижению производительности. Из-за ошибки оптимизатора может быть выбран неоптимальный план выполнения запроса. В связи с этим, если в запросе используется соединение с виртуальной таблицей <code>SliceLast</code>, рекомендуется вынести обращение к виртуальной таблице в отдельный запрос с сохранением результатов во временной таблице.</p>
+</blockquote>
+<h3 id="_5">Использование подсистемы с именем проекта</h3>
+<p>Все новые объекты необходимо включать в новую подсистему, по возможности в одну из подчинённых. Если объект не подходит ни для одной из подчинённых — включать в основную. Это относится даже к объектам, которые не отображаются в командном интерфейсе (например, общие модули).</p>
+<h3 id="_6">Оформление доработок</h3>
+<ol>
+<li>Код необходимо писать из расчёта, чтобы он мог поддерживаться другими разработчиками.</li>
+<li>Все добавленные процедуры и функции в модули типовых объектов должны начинаться с префикса проекта.</li>
+<li>При разработке рекомендуется руководствоваться <a href="https://its.1c.ru/db/v8std">Системой стандартов и методик разработки конфигураций на платформе 1С:Предприятие 8</a>.</li>
+<li>В нетиповых модулях необходимо удалять закомментированные участки кода.</li>
+</ol>
+<blockquote>
+<p>Доработки в типовых модулях необходимо помечать комментариями следующего вида:</p>
+<p>Начало изменения:</p>
+<p><code>// ++ Korus (Full Name in English, e.g., Ivanov I.I.) Date Task</code></p>
+<p>Окончание изменения:</p>
+<p><code>// -- Korus (Full Name in English, e.g., Ivanov I.I.) Date Task</code></p>
+</blockquote>
+<ol>
+<li>Все новые модули необходимо размечать областями согласно стандарту «Структура модуля». Весь код модулей необходимо располагать в соответствующих областях. Не допускается размещение модулей вне областей.</li>
+<li>Тексты модулей должны быть написаны на русском языке. Исключение составляют веб-сервисы, имена методов и параметров которых рекомендуется задавать на английском языке (например, метод <code>TestConnection</code> веб-сервиса <code>EnterpriseDataExchange</code>), а также различные идентификаторы сторонних информационных систем, например названия полей «внешних» структур данных, которые программно обрабатываются в коде.</li>
+<li>Программные модули не должны иметь закомментированных фрагментов кода, а также фрагментов, которые каким-либо образом связаны с процессом разработки (отладочный код, служебные отметки, например <code>TODO</code>, <code>MRG</code> и т.п.) и с конкретными разработчиками этого кода. Тексты модулей оформляются по принципу «один оператор в одной строке».</li>
+<li>Текст модуля должен быть оформлен синтаксическим отступом. Для синтаксического отступа используется табуляция (а не пробелы, чтобы при смене числа знаков в табуляции выравнивание текста сохранялось). Желательно использовать отображение символов пробелов и табуляций, чтобы не порождать паразитных вставок их в код.</li>
+<li>При длине строки более 120 символов следует использовать переносы. Строки длиннее 120 символов делать не рекомендуется, за исключением тех случаев, когда перенос невозможен (например, в коде определена длинная строковая константа, которая выводится без переносов в окно сообщений с помощью объекта <code>UserMessage</code>).</li>
+<li>Тексты модулей могут содержать комментарии. Комментарии должны быть достаточно понятными, чтобы пояснять работу модуля или комментируемого оператора. Тексты комментариев должны составляться по правилам русского языка, в деловом стиле, быть эмоционально сдержанными и не содержать слов, не относящихся к функциональности программы.</li>
+<li>Для сложных и нестандартных процедур и функций рекомендуется оформлять описание в соответствии со стандартом <a href="https://its.1c.ru/db/v8std/content/453/hdoc">Описание процедур и функций</a>.</li>
+</ol>
+<h3 id="_7">Снятие с поддержки</h3>
+<p>Необходимо стремиться к тому, чтобы сохранять объекты на поддержке без включения возможности изменений. Если всё же нет обходного пути, тогда включать возможность изменения можно ТОЛЬКО с сохранением поддержки и только у тех метаданных, которые требуется дорабатывать (не включая подчинённые и родительские объекты метаданных).</p>
+<h3 id="_8">Доработка метаданных</h3>
+<p>Имена новых объектов, имена новых реквизитов типовых объектов и имена предопределённых элементов, макетов, команд и т.д. должны иметь префикс проекта:</p>
+<ul>
+<li>латиницей;</li>
+<li>строчными буквами;</li>
+<li>без символа подчёркивания.</li>
+</ul>
+<p>Причём префикс должен быть только на верхнем уровне добавления. Исключение составляют имена web-сервисов и http-сервисов, которые не должны содержать кириллицу в имени. Для таких объектов префикс не требуется. Именование метаданных следует выполнять строго в соответствии со стандартом <a href="https://its.1c.ru/db/v8std/content/550/hdoc">Имена объектов метаданных в конфигурациях</a>.</p>
+<h3 id="_9">Правила создания общих модулей</h3>
+<p>При вынесении процедур и функций в общие модули необходимо руководствоваться стандартом <a href="https://its.1c.ru/db/v8std/content/469/hdoc">Правила создания общих модулей</a>. Категорически запрещается создавать общие модули «общего назначения», код в которых может относиться сразу к нескольким функциональным блокам системы.</p>
+<ul>
+<li><strong>Неправильно:</strong> <code>prefixScheduledTasksServer.UpdateProvisionMethod</code></li>
+<li><strong>Правильно:</strong> <code>prefixProvisionManagement.UpdateProvisionMethod</code></li>
+</ul>
+<h3 id="_10">Модули менеджеров</h3>
+<p>Необходимо помнить, что модуль менеджера любого объекта метаданных может компилироваться как на клиенте, так и на сервере. В связи с этим ОБЯЗАТЕЛЬНО необходимо обрамлять код абсолютно всех модулей менеджеров соответствующими директивами:</p>
+<p><code>#If Server Or ThickClientOrdinaryApplication Or ExternalConnection Then</code>
+<code>// код</code>
+<code>#EndIf</code></p>
+<h2 id="_11">Доработка форм</h2>
+<p>Все изменения в части интерфейса типовых форм должны вноситься только программно в расширении. Исключение составляют только те редкие случаи, когда платформа не предоставляет возможность программного внесения изменений. Например, расширить тип реквизита формы. В таких исключительных случаях необходимо внести изменение через конструктор формы, а в тексте модуля формы описать внесённое изменение в комментарии. Все программно добавляемые реквизиты и элементы формы должны начинаться с префикса проекта <code>rox_</code>.</p>
+<p>При добавлении обработчиков событий в типовых формах имя процедуры должно обязательно начинаться с ключевого слова <code>Attachable</code> и префикса проекта, например <code>Attachable_rox_OnChange</code>. Для новых форм все доработки всегда вносятся через конструктор формы. Необходимо избегать программного создания реквизитов и элементов для нетиповых форм, если только это явно не требуется выполняемой задачей.</p>
+<h2 id="_12">Роли</h2>
+<p>Типовые роли не дорабатываем, за исключением роли <code>FullAccess</code> — для отключения интерактивного удаления новых объектов. Вместо этого необходимо создавать свои роли. При разработке ролей необходимо придерживаться стандарта <a href="https://its.1c.ru/db/v8std/content/689/hdoc">Настройка ролей и прав доступа</a>.</p>
+<h2 id="_13">Разработка регламентных заданий</h2>
+<p>При разработке регламентных заданий руководствоваться стандартом <a href="https://its.1c.ru/db/v8std/content/540/hdoc">Регламентные задания</a>, в частности в обязательном порядке использовать в начале метода конструкцию:</p>
+<p><code>CommonFunctions.AtStartOfScheduledJobExecution(Metadata.ScheduledJobs.JobName);</code></p>
+<h2 id="_14">Обработчики обновления данных</h2>
+<p>Выполнять обновление данных в информационной базе при переходе на новую версию с помощью внешних обработок запрещено. Необходимо пользоваться <a href="https://its.1c.ru/db/bsp314doc#content:4:1:issogl2_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B826">функциональностью БСП</a> и разрабатывать собственные обработчики обновления для каждой версии. Рекомендуется придерживаться подхода, который используется в типовых конфигурациях — обработчики обновления размещаются в модулях соответствующих объектов в специальных областях. Если при переходе на новую версию нужно обработать несколько объектов, допускается создать обработчик вида <code>OnUpgradeToVersion</code> непосредственно в модуле <code>rox_UpgradeInformationBase</code> в специальной области. При написании обработчиков обновления необходимо:</p>
+<ul>
+<li>следовать <a href="https://its.1c.ru/db/bsp314doc#content:4:1:issogl2_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%BF%D1%80%D0%B8_%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B5_%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D1%83%D1%80%D0%B0%D1%86%D0%B8%D0%B826">документации по подсистеме</a>;</li>
+<li>задействовать все возможности подсистемы, например, по отложенному обновлению данных в несколько потоков и блокировке необработанных данных.</li>
+</ul>
+<p><strong>ВНИМАНИЕ!</strong> Запрещено повторно использовать одинаковые обработчики для обновления на разные версии, в т.ч. «дописывать» имеющийся обработчик для новой версии. Для каждой версии обработчик должен быть написан отдельно.</p>
+<p><strong>ВНИМАНИЕ!</strong> Необходимо обращать внимание на объём данных в целевой информационной базе. Например, когда в базе разработки справочник содержит 100 элементов, а в основной базе — 2 млн элементов.</p>
+<p><strong>ВНИМАНИЕ!</strong> Алгоритм получения данных к обработке должен работать таким образом, чтобы уже обработанные данные не перезаписывались при повторном запуске обработчика.</p>
+<p><strong>ВНИМАНИЕ!</strong> Там, где это возможно, необходимо отключать бизнес-логику и регистрацию объектов в планах обмена. Руководствоваться инструкцией <a href="https://kb.korusconsulting.ru/pages/viewpage.action?pageId=151126537">«Массовые изменения данных»</a>.</p>
+<h1 id="_15">Использование служебных механизмов и библиотек</h1>
+<p>При доработке конфигурации и расширения доступны следующие механизмы и библиотеки:</p>
+<ul>
+<li>Расширенные регламентные задания (использовать для добавления новых регламентных заданий)</li>
+<li>Отложенные задания (использовать для отложенной обработки произвольной логики, где может потребоваться порционная обработка данных)</li>
+<li>Флаги включения новых алгоритмов (после ввода в эксплуатацию для безопасного запуска новой логики)</li>
+</ul>
+<p>По возможности необходимо всегда задействовать эти инструменты, иные случаи должны индивидуально проговариваться с ТА. Для каждого механизма есть отдельная инструкция, с которой необходимо обязательно ознакомиться перед началом работы.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../operators/" class="btn btn-neutral float-left" title="Операторы языка 1с(рус + англ)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../operators/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

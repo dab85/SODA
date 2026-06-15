@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Обоснование трех контуров - Soda</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041e\u0431\u043e\u0441\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0442\u0440\u0435\u0445 \u043a\u043e\u043d\u0442\u0443\u0440\u043e\u0432";
+        var mkdocs_page_input_path = "three_contur.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Soda
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Домашняя</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Обоснование трех контуров</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../operators/">Операторы языка 1с(рус + англ)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reglament/">Регламент разработки</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Soda</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Обоснование трех контуров</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><strong>Обоснование 3 контуров</strong></p>
+<p><strong>Тема:</strong> Техническое обоснование внедрения раздельных контуров и сервера хранилища для 1С:ERP World Edition</p>
+<p>В рамках проекта по внедрению 1С:ERP World Edition критически важным фактором успеха является не только качество кода, но и регламент работы с ним. Для обеспечения стабильности, безопасности и скорости разработки мы настоятельно рекомендуем внедрение <strong>трехуровневой архитектуры контуров (Test / Staging / Prod) и сервера хранилища конфигураций</strong>.</p>
+<p><strong>1. Почему нельзя обойтись одним контуром? (Бизнес-обоснование)</strong></p>
+<p>Работа с одной базой (Продакшн) – это крупный риск. В современной agile-разработке разделение сред — это стандарт индустрии.</p>
+<ul>
+<li>
+<p><strong>Test (Тестовый контур):</strong> Позволяет программистам проверять «сырой» код и новые отчеты прямо во время разработки, не боясь сломать документы или регистры.</p>
+</li>
+<li>
+<p><strong>Staging (Промоконтур / Полупродуктовый):</strong> Это точная копия Prod, но недоступная для пользователей. Здесь бизнес-заказчик принимает работу, а мы проверяем производительность обновлений без риска остановки торговли .</p>
+</li>
+<li>
+<p><strong>Prod (Продуктовый контур):</strong> Только проверенный и подписанный код. Максимальная стабильность для пользователей.</p>
+</li>
+</ul>
+<p><strong>Выгода:</strong> Исключение простоев в рабочее время. Вы перестаете быть «заложниками» процесса разработки.</p>
+<p><strong>2. Хранилище конфигураций (Контроль версий)</strong></p>
+<p>Разработка 1С:ERP ведется командой. Без сервера хранилища мы рискуем затереть код друг друга. Хранилище фиксирует каждое изменение.</p>
+<ul>
+<li>
+<p><strong>Если поломается Prod:</strong> Мы откатимся на работающую версию за 5 минут.</p>
+</li>
+<li>
+<p><strong>Аудит:</strong> Мы точно знаем, кто, когда и зачем изменил код .</p>
+</li>
+</ul>
+<p><strong>3. Рекомендуемые характеристики железа</strong></p>
+<p>С учетом того, что проект базируется на 1С:ERP World Edition (высокая нагрузка на CPU/RAM), мы предлагаем следующую архитектуру. Среда выполнения Staging должна быть близка к Prod, чтобы точно прогнозировать производительность.</p>
+<p><strong>А. Сервер Хранилища Конфигураций (Teamwork)</strong></p>
+<p>Не требует высокой мощности CPU, но важен быстрый диск для чтения версий.</p>
+<ul>
+<li>
+<p><strong>Процессор:</strong> 4 ядра (Intel Xeon / AMD EPYC).</p>
+</li>
+<li>
+<p><strong>ОЗУ:</strong> 8–16 ГБ (ECC) .</p>
+</li>
+<li>
+<p><strong>Дисковая система (критично):</strong> <strong>SSD (NVMe) RAID 1</strong> (200+ ГБ). HDD сделает работу разработчиков невыносимо медленной .</p>
+</li>
+<li>
+<p><strong>ОС:</strong> Windows Server 2022 или Ubuntu 20.04/22.04 LTS.</p>
+</li>
+</ul>
+<p><strong>Б. Сервер БД (MS SQL) + Среда выполнения Prod / Staging</strong></p>
+<p>Это сердце системы. Требует максимальной скорости дисков (NVMe), так как 1С:ERP генерирует тысячи мелких операций записи.</p>
+<ul>
+<li>
+<p><strong>Процессор:</strong> от 8 ядер (базовая частота от 3.0 ГГц). Рекомендуем 2 процессора Intel Xeon Gold (32-48 ядер суммарно) .</p>
+</li>
+<li>
+<p><strong>ОЗУ:</strong> <strong>от 64 ГБ до 128 ГБ</strong> (DDR4/DDR5 ECC).</p>
+</li>
+<li>
+<p><em>Важно:</em> SQL Server Standard «умеет» использовать максимум 128 ГБ буфера, это ваш потолок, если не переходить на Enterprise .</p>
+</li>
+<li>
+<p><strong>Дисковая система (СУБД):</strong> 2-4 NVMe диска в RAID 10 (контроллер с BBU + кэш) — это обязательное условие для ERP.</p>
+</li>
+<li>
+<p><strong>Бэкапы:</strong> HDD RAID 5/6 (объем от 2 ТБ) .</p>
+</li>
+</ul>
+<p><strong>В. Сервер Приложений 1С (РАГ / Веб-сервер)</strong></p>
+<p>Масштабируется горизонтально. На нем держатся сессии пользователей.</p>
+<ul>
+<li>
+<p><strong>Процессор:</strong> 8-16 ядер (чем выше частота, тем быстрее расчеты).</p>
+</li>
+<li>
+<p><strong>ОЗУ:</strong> 32–64 ГБ.</p>
+</li>
+<li>
+<p><strong>Сеть:</strong> 1 Гбит/с (рекомендуется 2 порта в teaming) .</p>
+</li>
+<li>
+<p><em>Требование к ПО:</em> IIS (Windows) или Apache (Linux) .</p>
+</li>
+</ul>
+<p>*<em>*</em></p>
+<p><strong>4. Сравнение конфигураций (Таблица)</strong></p>
+<table style="width:100%;">
+
+<colgroup>
+
+<col style="width: 25%" />
+
+<col style="width: 25%" />
+
+<col style="width: 25%" />
+
+<col style="width: 23%" />
+
+</colgroup>
+
+<thead>
+
+<tr>
+
+<th>Роль в системе</th>
+
+<th>Процессор (CPU)</th>
+
+<th>Оперативная память (RAM)</th>
+
+<th>Дисковая подсистема</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td><strong>1С:ERP Prod / Staging</strong></td>
+
+<td>8-32 ядра (Intel Xeon)</td>
+
+<td>64 - 128 ГБ<br />
+
+<em>(Для SQL Standard)</em></td>
+
+<td>RAID 10 на NVMe SSD</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Сервер 1С (РАГ)</strong></td>
+
+<td>8-16 ядер (высокая частота)</td>
+
+<td>32 - 64 ГБ</td>
+
+<td>SSD или HDD (RAID 1)</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Хранилище конфигураций</strong></td>
+
+<td>4-8 ядер</td>
+
+<td>16 - 32 ГБ</td>
+
+<td><strong>SSD RAID 1</strong> (обязателен)</td>
+
+</tr>
+
+<tr>
+
+<td><strong>Test (Разработка)</strong></td>
+
+<td>Физический ПК Dev или VM</td>
+
+<td>16 - 32 ГБ</td>
+
+<td>SSD локальный</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p><strong>5. Затраты на внедрение и ownership</strong></p>
+<ol>
+<li>
+<p><strong>Лицензирование MS SQL:</strong> Если ваш разработчик использует MS SQL Standard, вы <strong>ограничены 128 ГБ</strong> RAM для буфера данных . Для 1С:ERP World Edition на 50+ пользователей этого часто достаточно. Переход на Enterprise требуется только при экстремально высоких нагрузках (сотни ГБ баз).</p>
+</li>
+<li>
+<p><strong>Лицензии 1С:</strong> Для тестового контура и Staging необходимы отдельные лицензии на сервер (РАГ), если базы подняты как отдельные экземпляры.</p>
+</li>
+<li>
+<p><strong>Администрирование:</strong> Рекомендуем внедрить скрипты CI/CD (непрерывной интеграции), чтобы выкатка обновления из Dev в Prod происходила нажатием одной кнопки через 1С:Исполнитель .</p>
+</li>
+</ol>
+<p><strong>Резюме</strong></p>
+<p>Инвестиция в раздельные контуры <strong>Test, Staging и Prod</strong> — это инвестиция в <strong>бесперебойность бизнеса</strong>. Стоимость часа простоя ERP-системы на крупном предприятии в разы превышает стоимость сервера под хранилище.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Домашняя"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../operators/" class="btn btn-neutral float-right" title="Операторы языка 1с(рус + англ)">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../operators/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
