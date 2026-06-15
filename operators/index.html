@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Операторы языка 1с(рус + англ) - Soda</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041e\u043f\u0435\u0440\u0430\u0442\u043e\u0440\u044b \u044f\u0437\u044b\u043a\u0430 1\u0441(\u0440\u0443\u0441 + \u0430\u043d\u0433\u043b)";
+        var mkdocs_page_input_path = "operators.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Soda
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Домашняя</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../three_contur/">Обоснование трех-контурной системы разработки</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Операторы языка 1с(рус + англ)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1_1">Основные типы коллекций в 1С</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Методы работы с коллекциями</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#array-valuelist">Для Массива (Array) и СпискаЗначений (ValueList)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#structure-correspondence">Для Структуры (Structure) и Соответствия (Correspondence)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#valuetable">Для ТаблицыЗначений (ValueTable)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1_2">1. Реквизиты объекта</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2. Реквизиты формы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3. Элементы формы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. Свойства элементов формы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. Методы работы с реквизитами формы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6">6. Свойства формы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7">7. Иерархия элементов</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8">8. События формы и элементов</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9">9. Сводная таблица соответствий</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1_3">1. Директивы контекста выполнения</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2_1">2. Директивы переопределения и замены</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3_1">3. Директивы расширений</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4_1">4. Прочие директивы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Соглашение об именовании переменных и подпрограмм</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1_4">1. Функции, возвращающие значение (геттеры)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2_2">2. Процедуры, устанавливающие значения (сеттеры)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3_2">3. Булевы функции и переменные (предикаты)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Сводная таблица</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Дополнительные префиксы для булевых значений</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reglament/">Регламент разработки</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Soda</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Операторы языка 1с(рус + англ)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="1">Основные операторы языка 1С (ключевые слова)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский</th>
+<th style="text-align: left;">English</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Если ... Тогда ... ИначеЕсли ... Иначе ... КонецЕсли</strong></td>
+<td style="text-align: left;"><strong>If ... Then ... ElseIf ... Else ... EndIf</strong></td>
+<td style="text-align: left;">Условный оператор</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Для ... По ... Цикл ... КонецЦикла</strong></td>
+<td style="text-align: left;"><strong>For ... To ... Do ... EndDo</strong></td>
+<td style="text-align: left;">Цикл со счётчиком</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Для Каждого ... Из ... Цикл ... КонецЦикла</strong></td>
+<td style="text-align: left;"><strong>For Each ... In ... Do ... EndDo</strong></td>
+<td style="text-align: left;">Перебор коллекции</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Пока ... Цикл ... КонецЦикла</strong></td>
+<td style="text-align: left;"><strong>While ... Do ... EndDo</strong></td>
+<td style="text-align: left;">Цикл с предусловием</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Прервать</strong></td>
+<td style="text-align: left;"><strong>Break</strong></td>
+<td style="text-align: left;">Выход из цикла</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Продолжить</strong></td>
+<td style="text-align: left;"><strong>Continue</strong></td>
+<td style="text-align: left;">Переход к следующей итерации</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Функция ... КонецФункции</strong></td>
+<td style="text-align: left;"><strong>Function ... EndFunction</strong></td>
+<td style="text-align: left;">Объявление функции</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Процедура ... КонецПроцедуры</strong></td>
+<td style="text-align: left;"><strong>Procedure ... EndProcedure</strong></td>
+<td style="text-align: left;">Объявление процедуры</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Перем</strong></td>
+<td style="text-align: left;"><strong>Var</strong></td>
+<td style="text-align: left;">Объявление локальной переменной</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Знач</strong></td>
+<td style="text-align: left;"><strong>Val</strong></td>
+<td style="text-align: left;">Передача параметра по значению</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Экспорт</strong></td>
+<td style="text-align: left;"><strong>Export</strong></td>
+<td style="text-align: left;">Экспорт метода (публичный)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Возврат</strong></td>
+<td style="text-align: left;"><strong>Return</strong></td>
+<td style="text-align: left;">Возврат значения из функции</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Новый</strong></td>
+<td style="text-align: left;"><strong>New</strong></td>
+<td style="text-align: left;">Создание объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Попытка ... Исключение ... КонецПопытки</strong></td>
+<td style="text-align: left;"><strong>Try ... Except ... EndTry</strong></td>
+<td style="text-align: left;">Обработка исключений</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1_1">Основные типы коллекций в 1С</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское название</th>
+<th style="text-align: left;">English название</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Массив</strong></td>
+<td style="text-align: left;"><strong>Array</strong></td>
+<td style="text-align: left;">Простой список значений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Структура</strong></td>
+<td style="text-align: left;"><strong>Structure</strong></td>
+<td style="text-align: left;">Набор пар "Ключ=Значение"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Соответствие</strong></td>
+<td style="text-align: left;"><strong>Correspondence</strong></td>
+<td style="text-align: left;">Как Структура, но ключи любых типов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>СписокЗначений</strong></td>
+<td style="text-align: left;"><strong>ValueList</strong></td>
+<td style="text-align: left;">Для выбора значений (UI)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ТаблицаЗначений</strong></td>
+<td style="text-align: left;"><strong>ValueTable</strong></td>
+<td style="text-align: left;">Таблица с колонками и строками</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ДеревоЗначений</strong></td>
+<td style="text-align: left;"><strong>ValueTree</strong></td>
+<td style="text-align: left;">Иерархическая таблица</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ФиксированныйМассив</strong></td>
+<td style="text-align: left;"><strong>FixedArray</strong></td>
+<td style="text-align: left;">Массив, который нельзя изменить</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ФиксированнаяСтруктура</strong></td>
+<td style="text-align: left;"><strong>FixedStructure</strong></td>
+<td style="text-align: left;">Структура, которую нельзя изменить</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ФиксированноеСоответствие</strong></td>
+<td style="text-align: left;"><strong>FixedCorrespondence</strong></td>
+<td style="text-align: left;">Соответствие, которое нельзя изменить</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">Методы работы с коллекциями</h2>
+<h3 id="array-valuelist">Для Массива (Array) и СпискаЗначений (ValueList)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">English метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Вставить()</code></td>
+<td style="text-align: left;"><code>Insert()</code></td>
+<td style="text-align: left;">Вставить элемент по индексу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Добавить()</code></td>
+<td style="text-align: left;"><code>Add()</code></td>
+<td style="text-align: left;">Добавить элемент в конец</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Удалить()</code></td>
+<td style="text-align: left;"><code>Delete()</code></td>
+<td style="text-align: left;">Удалить элемент</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Очистить()</code></td>
+<td style="text-align: left;"><code>Clear()</code></td>
+<td style="text-align: left;">Удалить все элементы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Количество()</code></td>
+<td style="text-align: left;"><code>Count()</code></td>
+<td style="text-align: left;">Получить число элементов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Получить()</code></td>
+<td style="text-align: left;"><code>Get()</code></td>
+<td style="text-align: left;">Получить элемент по индексу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Найти()</code></td>
+<td style="text-align: left;"><code>Find()</code></td>
+<td style="text-align: left;">Найти элемент по значению</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Сортировать()</code></td>
+<td style="text-align: left;"><code>Sort()</code></td>
+<td style="text-align: left;">Отсортировать коллекцию</td>
+</tr>
+</tbody>
+</table>
+<h3 id="structure-correspondence">Для Структуры (Structure) и Соответствия (Correspondence)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">English метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Вставить()</code></td>
+<td style="text-align: left;"><code>Insert()</code></td>
+<td style="text-align: left;">Добавить пару Ключ=Значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Удалить()</code></td>
+<td style="text-align: left;"><code>Delete()</code></td>
+<td style="text-align: left;">Удалить элемент по ключу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Очистить()</code></td>
+<td style="text-align: left;"><code>Clear()</code></td>
+<td style="text-align: left;">Удалить всё</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Количество()</code></td>
+<td style="text-align: left;"><code>Count()</code></td>
+<td style="text-align: left;">Число пар</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Получить()</code></td>
+<td style="text-align: left;"><code>Get()</code></td>
+<td style="text-align: left;">Получить значение по ключу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Свойство()</code></td>
+<td style="text-align: left;"><code>Property()</code></td>
+<td style="text-align: left;">Проверить наличие ключа</td>
+</tr>
+</tbody>
+</table>
+<h3 id="valuetable">Для ТаблицыЗначений (ValueTable)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">English метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Добавить()</code></td>
+<td style="text-align: left;"><code>Add()</code></td>
+<td style="text-align: left;">Добавить строку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Удалить()</code></td>
+<td style="text-align: left;"><code>Delete()</code></td>
+<td style="text-align: left;">Удалить строку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Очистить()</code></td>
+<td style="text-align: left;"><code>Clear()</code></td>
+<td style="text-align: left;">Удалить всё</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Количество()</code></td>
+<td style="text-align: left;"><code>Count()</code></td>
+<td style="text-align: left;">Количество строк</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Итог()</code></td>
+<td style="text-align: left;"><code>Total()</code></td>
+<td style="text-align: left;">Сумма по колонке</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Свернуть()</code></td>
+<td style="text-align: left;"><code>Collapse()</code></td>
+<td style="text-align: left;">Свернуть по колонкам</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Сортировать()</code></td>
+<td style="text-align: left;"><code>Sort()</code></td>
+<td style="text-align: left;">Отсортировать</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Найти()</code></td>
+<td style="text-align: left;"><code>Find()</code></td>
+<td style="text-align: left;">Поиск значения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НайтиСтроки()</code></td>
+<td style="text-align: left;"><code>FindRows()</code></td>
+<td style="text-align: left;">Поиск нескольких строк (с отбором)</td>
+</tr>
+<tr>
+<td style="text-align: left;"># Элементы форм и реквизиты объектов (русский vs английский)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1_2">1. Реквизиты объекта</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Реквизит</code></td>
+<td style="text-align: left;"><code>Attribute</code></td>
+<td style="text-align: left;">Поле данных объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Стандартный реквизит</code></td>
+<td style="text-align: left;"><code>Standard attribute</code></td>
+<td style="text-align: left;">Встроенный реквизит (например, Ссылка, Код, Наименование)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Реквизит объекта</code></td>
+<td style="text-align: left;"><code>Object attribute</code></td>
+<td style="text-align: left;">Данные, принадлежащие объекту</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Табличная часть</code></td>
+<td style="text-align: left;"><code>Tabular section</code></td>
+<td style="text-align: left;">Коллекция строк с реквизитами</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Строка табличной части</code></td>
+<td style="text-align: left;"><code>Tabular section row</code></td>
+<td style="text-align: left;">Элемент коллекции табличной части</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2. Реквизиты формы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Реквизит формы</code></td>
+<td style="text-align: left;"><code>Form attribute</code></td>
+<td style="text-align: left;">Данные формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Основной реквизит</code></td>
+<td style="text-align: left;"><code>Main attribute</code></td>
+<td style="text-align: left;">Главный реквизит (обычно связан с объектом)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Команда формы</code></td>
+<td style="text-align: left;"><code>Form command</code></td>
+<td style="text-align: left;">Действие, выполняемое формой</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Реквизит команды</code></td>
+<td style="text-align: left;"><code>Command attribute</code></td>
+<td style="text-align: left;">Параметр команды</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3">3. Элементы формы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Элемент формы</code></td>
+<td style="text-align: left;"><code>Form element / Form control</code></td>
+<td style="text-align: left;">Визуальный компонент формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Поле ввода</code></td>
+<td style="text-align: left;"><code>Input field</code></td>
+<td style="text-align: left;">Поле для ввода данных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Поле флажка</code></td>
+<td style="text-align: left;"><code>Check box field</code></td>
+<td style="text-align: left;">Элемент выбора Да/Нет</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Поле переключателя</code></td>
+<td style="text-align: left;"><code>Radio button field</code></td>
+<td style="text-align: left;">Выбор одного из вариантов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Поле списка</code></td>
+<td style="text-align: left;"><code>List box field</code></td>
+<td style="text-align: left;">Выпадающий список</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Таблица формы</code></td>
+<td style="text-align: left;"><code>Form table</code></td>
+<td style="text-align: left;">Таблица для отображения коллекций</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Кнопка</code></td>
+<td style="text-align: left;"><code>Button</code></td>
+<td style="text-align: left;">Элемент для выполнения команд</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Группа</code></td>
+<td style="text-align: left;"><code>Group</code></td>
+<td style="text-align: left;">Контейнер для группировки элементов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Страницы</code></td>
+<td style="text-align: left;"><code>Pages</code></td>
+<td style="text-align: left;">Контейнер с вкладками</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Страница</code></td>
+<td style="text-align: left;"><code>Page</code></td>
+<td style="text-align: left;">Отдельная вкладка</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Декорация</code></td>
+<td style="text-align: left;"><code>Decoration</code></td>
+<td style="text-align: left;">Элемент оформления (надпись, картинка)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Надпись</code></td>
+<td style="text-align: left;"><code>Label</code></td>
+<td style="text-align: left;">Текстовый элемент</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Картинка</code></td>
+<td style="text-align: left;"><code>Picture</code></td>
+<td style="text-align: left;">Графический элемент</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. Свойства элементов формы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское свойство</th>
+<th style="text-align: left;">Английское свойство</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Имя</code></td>
+<td style="text-align: left;"><code>Name</code></td>
+<td style="text-align: left;">Идентификатор элемента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Заголовок</code></td>
+<td style="text-align: left;"><code>Title</code></td>
+<td style="text-align: left;">Отображаемый текст</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Доступность</code></td>
+<td style="text-align: left;"><code>Enabled</code></td>
+<td style="text-align: left;">Доступен ли элемент для взаимодействия</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Видимость</code></td>
+<td style="text-align: left;"><code>Visible</code></td>
+<td style="text-align: left;">Виден ли элемент на форме</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТолькоПросмотр</code></td>
+<td style="text-align: left;"><code>ReadOnly</code></td>
+<td style="text-align: left;">Только для чтения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПутьКДанным</code></td>
+<td style="text-align: left;"><code>DataPath</code></td>
+<td style="text-align: left;">Связь с реквизитом формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Значение</code></td>
+<td style="text-align: left;"><code>Value</code></td>
+<td style="text-align: left;">Текущее значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Подсказка</code></td>
+<td style="text-align: left;"><code>Tooltip</code></td>
+<td style="text-align: left;">Всплывающая подсказка</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5">5. Методы работы с реквизитами формы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">Английский метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ИзменитьРеквизиты()</code></td>
+<td style="text-align: left;"><code>ChangeAttributes()</code></td>
+<td style="text-align: left;">Добавление/удаление реквизитов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьРеквизиты()</code></td>
+<td style="text-align: left;"><code>GetAttributes()</code></td>
+<td style="text-align: left;">Получение списка реквизитов</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6">6. Свойства формы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское свойство</th>
+<th style="text-align: left;">Английское свойство</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ЭтотОбъект</code></td>
+<td style="text-align: left;"><code>ThisObject</code></td>
+<td style="text-align: left;">Текущий объект формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Объект</code></td>
+<td style="text-align: left;"><code>Object</code></td>
+<td style="text-align: left;">Основной объект (связанный с формой)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Элементы</code></td>
+<td style="text-align: left;"><code>Elements</code></td>
+<td style="text-align: left;">Коллекция элементов формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Команды</code></td>
+<td style="text-align: left;"><code>Commands</code></td>
+<td style="text-align: left;">Коллекция команд формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Параметры</code></td>
+<td style="text-align: left;"><code>Parameters</code></td>
+<td style="text-align: left;">Параметры открытия формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТекущийЭлемент</code></td>
+<td style="text-align: left;"><code>CurrentItem</code></td>
+<td style="text-align: left;">Активный в данный момент элемент</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7">7. Иерархия элементов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Родитель</code></td>
+<td style="text-align: left;"><code>Parent</code></td>
+<td style="text-align: left;">Родительский элемент в иерархии</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПодчиненныеЭлементы</code></td>
+<td style="text-align: left;"><code>ChildItems</code></td>
+<td style="text-align: left;">Дочерние элементы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Владелец</code></td>
+<td style="text-align: left;"><code>Owner</code></td>
+<td style="text-align: left;">Владелец элемента</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8">8. События формы и элементов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское событие</th>
+<th style="text-align: left;">Английское событие</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ПриОткрытии</code></td>
+<td style="text-align: left;"><code>OnOpen</code></td>
+<td style="text-align: left;">При открытии формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриЗакрытии</code></td>
+<td style="text-align: left;"><code>OnClose</code></td>
+<td style="text-align: left;">При закрытии формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПередЗаписью</code></td>
+<td style="text-align: left;"><code>BeforeWrite</code></td>
+<td style="text-align: left;">Перед записью объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриЗаписи</code></td>
+<td style="text-align: left;"><code>OnWrite</code></td>
+<td style="text-align: left;">При записи объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриИзменении</code></td>
+<td style="text-align: left;"><code>OnChange</code></td>
+<td style="text-align: left;">При изменении значения элемента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриНажатии</code></td>
+<td style="text-align: left;"><code>OnClick</code></td>
+<td style="text-align: left;">При нажатии кнопки</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9">9. Сводная таблица соответствий</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Реквизит</code></td>
+<td style="text-align: left;"><code>Attribute</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Реквизит формы</code></td>
+<td style="text-align: left;"><code>Form attribute</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Элемент формы</code></td>
+<td style="text-align: left;"><code>Form element / Form control</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Поле ввода</code></td>
+<td style="text-align: left;"><code>Input field</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Таблица формы</code></td>
+<td style="text-align: left;"><code>Form table</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Кнопка</code></td>
+<td style="text-align: left;"><code>Button</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Группа</code></td>
+<td style="text-align: left;"><code>Group</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Страницы</code></td>
+<td style="text-align: left;"><code>Pages</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Декорация</code></td>
+<td style="text-align: left;"><code>Decoration</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Доступность</code></td>
+<td style="text-align: left;"><code>Enabled</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Видимость</code></td>
+<td style="text-align: left;"><code>Visible</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТолькоПросмотр</code></td>
+<td style="text-align: left;"><code>ReadOnly</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПутьКДанным</code></td>
+<td style="text-align: left;"><code>DataPath</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЭтотОбъект</code></td>
+<td style="text-align: left;"><code>ThisObject</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Элементы</code></td>
+<td style="text-align: left;"><code>Elements</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Команды</code></td>
+<td style="text-align: left;"><code>Commands</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Родитель</code></td>
+<td style="text-align: left;"><code>Parent</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПодчиненныеЭлементы</code></td>
+<td style="text-align: left;"><code>ChildItems</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриОткрытии</code></td>
+<td style="text-align: left;"><code>OnOpen</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриЗакрытии</code></td>
+<td style="text-align: left;"><code>OnClose</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПередЗаписью</code></td>
+<td style="text-align: left;"><code>BeforeWrite</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПриИзменении</code></td>
+<td style="text-align: left;"><code>OnChange</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"># Директивы языка 1С и их английские аналоги</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1_3">1. Директивы контекста выполнения</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская директива</th>
+<th style="text-align: left;">Английская директива</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&amp;НаКлиенте</code></td>
+<td style="text-align: left;"><code>&amp;AtClient</code></td>
+<td style="text-align: left;">Выполнение на стороне клиента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;НаСервере</code></td>
+<td style="text-align: left;"><code>&amp;AtServer</code></td>
+<td style="text-align: left;">Выполнение на стороне сервера</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;НаКлиентеНаСервере</code></td>
+<td style="text-align: left;"><code>&amp;AtClientAtServer</code></td>
+<td style="text-align: left;">Выполнение и на клиенте, и на сервере</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;НаСервереБезКонтекста</code></td>
+<td style="text-align: left;"><code>&amp;AtServerWithoutContext</code></td>
+<td style="text-align: left;">Выполнение на сервере без контекста формы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;НаКлиентеНаСервереБезКонтекста</code></td>
+<td style="text-align: left;"><code>&amp;AtClientAtServerWithoutContext</code></td>
+<td style="text-align: left;">Выполнение на клиенте и сервере без контекста</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2_1">2. Директивы переопределения и замены</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская директива</th>
+<th style="text-align: left;">Английская директива</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&amp;Вместо</code></td>
+<td style="text-align: left;"><code>&amp;InsteadOf</code></td>
+<td style="text-align: left;">Замена стандартного обработчика события</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;После</code></td>
+<td style="text-align: left;"><code>&amp;After</code></td>
+<td style="text-align: left;">Выполнение после стандартного обработчика</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Перед</code></td>
+<td style="text-align: left;"><code>&amp;Before</code></td>
+<td style="text-align: left;">Выполнение перед стандартным обработчиком</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Переопределить</code></td>
+<td style="text-align: left;"><code>&amp;Override</code></td>
+<td style="text-align: left;">Переопределение метода в расширении</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3_1">3. Директивы расширений</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская директива</th>
+<th style="text-align: left;">Английская директива</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&amp;Расширение</code></td>
+<td style="text-align: left;"><code>&amp;Extension</code></td>
+<td style="text-align: left;">Указывает, что объект принадлежит расширению</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Вместо("ИмяМетода")</code></td>
+<td style="text-align: left;"><code>&amp;InsteadOf("MethodName")</code></td>
+<td style="text-align: left;">Переопределение метода расширения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;После("ИмяМетода")</code></td>
+<td style="text-align: left;"><code>&amp;After("MethodName")</code></td>
+<td style="text-align: left;">Выполнение после метода расширения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Перед("ИмяМетода")</code></td>
+<td style="text-align: left;"><code>&amp;Before("MethodName")</code></td>
+<td style="text-align: left;">Выполнение перед методом расширения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Добавить("ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;Add("ExtensionName")</code></td>
+<td style="text-align: left;">Добавление элемента в расширение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;ДляРасширения("ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;ForExtension("ExtensionName")</code></td>
+<td style="text-align: left;">Указывает расширение для элемента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;ИсключитьИзРасширения("ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;ExcludeFromExtension("ExtensionName")</code></td>
+<td style="text-align: left;">Исключение элемента из расширения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Новый</code></td>
+<td style="text-align: left;"><code>&amp;New</code></td>
+<td style="text-align: left;">Новый метод в расширении</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;ДобавитьОбработчик("ИмяСобытия")</code></td>
+<td style="text-align: left;"><code>&amp;AddHandler("EventName")</code></td>
+<td style="text-align: left;">Добавление обработчика события</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4_1">4. Прочие директивы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская директива</th>
+<th style="text-align: left;">Английская директива</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>&amp;ЗапускПользовательскогоКода</code></td>
+<td style="text-align: left;"><code>&amp;RunUserCode</code></td>
+<td style="text-align: left;">Маркер для пользовательского кода</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;ОбработкаКомандногоИнтерфейса</code></td>
+<td style="text-align: left;"><code>&amp;CommandInterfaceHandler</code></td>
+<td style="text-align: left;">Обработчик командного интерфейса</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">Соглашение об именовании переменных и подпрограмм</h2>
+<p>Для повышения читаемости и самодокументируемости кода рекомендуется использовать следующие префиксы.</p>
+<h3 id="1_4">1. Функции, возвращающие значение (геттеры)</h3>
+<p>Функции, которые <strong>возвращают</strong> значение, должны начинаться с префикса <code>Get</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Назначение</th>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Пример (рус)</th>
+<th style="text-align: left;">Пример (англ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Получение значения</td>
+<td style="text-align: left;"><code>Get</code></td>
+<td style="text-align: left;"><code>ПолучитьОстаток()</code></td>
+<td style="text-align: left;"><code>GetRemaining()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Получение имени</td>
+<td style="text-align: left;"><code>Get</code></td>
+<td style="text-align: left;"><code>ПолучитьИмяПользователя()</code></td>
+<td style="text-align: left;"><code>GetUserName()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Получение даты</td>
+<td style="text-align: left;"><code>Get</code></td>
+<td style="text-align: left;"><code>ПолучитьТекущуюДату()</code></td>
+<td style="text-align: left;"><code>GetCurrentDate()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2_2">2. Процедуры, устанавливающие значения (сеттеры)</h3>
+<p>Процедуры, которые <strong>устанавливают</strong> значения свойств или состояния, должны начинаться с префикса <code>Set</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Назначение</th>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Пример (рус)</th>
+<th style="text-align: left;">Пример (англ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Установка параметров</td>
+<td style="text-align: left;"><code>Set</code></td>
+<td style="text-align: left;"><code>УстановитьПараметры()</code></td>
+<td style="text-align: left;"><code>SetParameters()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Установка статуса</td>
+<td style="text-align: left;"><code>Set</code></td>
+<td style="text-align: left;"><code>УстановитьСтатус()</code></td>
+<td style="text-align: left;"><code>SetStatus()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Установка скидки</td>
+<td style="text-align: left;"><code>Set</code></td>
+<td style="text-align: left;"><code>УстановитьСкидку()</code></td>
+<td style="text-align: left;"><code>SetDiscount()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3_2">3. Булевы функции и переменные (предикаты)</h3>
+<p>Функции и переменные, которые возвращают или хранят <strong>логическое значение</strong> (Истина/Ложь), должны начинаться с префикса <code>Is</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Назначение</th>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Пример (рус)</th>
+<th style="text-align: left;">Пример (англ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Проверка типа</td>
+<td style="text-align: left;"><code>Is</code></td>
+<td style="text-align: left;"><code>ЭтоДокумент()</code></td>
+<td style="text-align: left;"><code>IsDocument()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Флаг доступности</td>
+<td style="text-align: left;"><code>Is</code></td>
+<td style="text-align: left;"><code>Доступно</code></td>
+<td style="text-align: left;"><code>IsAvailable</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Проверка заполненности</td>
+<td style="text-align: left;"><code>Is</code></td>
+<td style="text-align: left;"><code>Заполнено</code></td>
+<td style="text-align: left;"><code>IsFilled</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">Сводная таблица</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Get</code></td>
+<td style="text-align: left;">Получить значение (функция)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Set</code></td>
+<td style="text-align: left;">Установить значение (процедура)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Is</code></td>
+<td style="text-align: left;">Логическое значение (Истина/Ложь)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">Дополнительные префиксы для булевых значений</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Префикс</th>
+<th style="text-align: left;">Значение</th>
+<th style="text-align: left;">Пример (англ)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Has</code></td>
+<td style="text-align: left;">Имеет что-то</td>
+<td style="text-align: left;"><code>HasChildren</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Can</code></td>
+<td style="text-align: left;">Может выполнить действие</td>
+<td style="text-align: left;"><code>CanEdit</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Contains</code></td>
+<td style="text-align: left;">Содержит элементы</td>
+<td style="text-align: left;"><code>ContainsErrors</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="1_5">Конструкции языка запросов 1С</h1>
+<h2 id="1_6">1. Основные операторы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский оператор</th>
+<th style="text-align: left;">Английский оператор</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ВЫБРАТЬ</code></td>
+<td style="text-align: left;"><code>SELECT</code></td>
+<td style="text-align: left;">Выборка данных из таблиц</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИЗ</code></td>
+<td style="text-align: left;"><code>FROM</code></td>
+<td style="text-align: left;">Указание источника данных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ГДЕ</code></td>
+<td style="text-align: left;"><code>WHERE</code></td>
+<td style="text-align: left;">Условие отбора записей</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ОБЪЕДИНИТЬ</code></td>
+<td style="text-align: left;"><code>UNION</code></td>
+<td style="text-align: left;">Объединение результатов двух запросов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ОБЪЕДИНИТЬ ВСЕ</code></td>
+<td style="text-align: left;"><code>UNION ALL</code></td>
+<td style="text-align: left;">Объединение с дубликатами</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>УПОРЯДОЧИТЬ ПО</code></td>
+<td style="text-align: left;"><code>ORDER BY</code></td>
+<td style="text-align: left;">Сортировка результата</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СГРУППИРОВАТЬ ПО</code></td>
+<td style="text-align: left;"><code>GROUP BY</code></td>
+<td style="text-align: left;">Группировка записей</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИМЕЮЩИЕ</code></td>
+<td style="text-align: left;"><code>HAVING</code></td>
+<td style="text-align: left;">Условие на сгруппированные данные</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2_3">2. Операторы соединения таблиц</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский оператор</th>
+<th style="text-align: left;">Английский оператор</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>СОЕДИНЕНИЕ</code></td>
+<td style="text-align: left;"><code>JOIN</code></td>
+<td style="text-align: left;">Соединение таблиц</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЛЕВОЕ СОЕДИНЕНИЕ</code></td>
+<td style="text-align: left;"><code>LEFT JOIN</code></td>
+<td style="text-align: left;">Левое внешнее соединение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПРАВОЕ СОЕДИНЕНИЕ</code></td>
+<td style="text-align: left;"><code>RIGHT JOIN</code></td>
+<td style="text-align: left;">Правое внешнее соединение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ВНУТРЕННЕЕ СОЕДИНЕНИЕ</code></td>
+<td style="text-align: left;"><code>INNER JOIN</code></td>
+<td style="text-align: left;">Внутреннее соединение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПОЛНОЕ СОЕДИНЕНИЕ</code></td>
+<td style="text-align: left;"><code>FULL JOIN</code></td>
+<td style="text-align: left;">Полное внешнее соединение</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3_3">3. Логические операторы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский оператор</th>
+<th style="text-align: left;">Английский оператор</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>И</code></td>
+<td style="text-align: left;"><code>AND</code></td>
+<td style="text-align: left;">Логическое И</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИЛИ</code></td>
+<td style="text-align: left;"><code>OR</code></td>
+<td style="text-align: left;">Логическое ИЛИ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НЕ</code></td>
+<td style="text-align: left;"><code>NOT</code></td>
+<td style="text-align: left;">Логическое НЕ</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4_2">4. Операторы сравнения</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский оператор</th>
+<th style="text-align: left;">Английский оператор</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>=</code></td>
+<td style="text-align: left;"><code>=</code></td>
+<td style="text-align: left;">Равно</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;&gt;</code></td>
+<td style="text-align: left;"><code>&lt;&gt;</code></td>
+<td style="text-align: left;">Не равно</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;">Больше</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;">Меньше</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;">Больше или равно</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;">Меньше или равно</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5_1">5. Специальные операторы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский оператор</th>
+<th style="text-align: left;">Английский оператор</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>В</code></td>
+<td style="text-align: left;"><code>IN</code></td>
+<td style="text-align: left;">Проверка вхождения в множество</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МЕЖДУ</code></td>
+<td style="text-align: left;"><code>BETWEEN</code></td>
+<td style="text-align: left;">Проверка попадания в диапазон</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПОДОБНО</code></td>
+<td style="text-align: left;"><code>LIKE</code></td>
+<td style="text-align: left;">Проверка соответствия шаблону</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ССЫЛКА</code></td>
+<td style="text-align: left;"><code>REFERENCE</code></td>
+<td style="text-align: left;">Проверка ссылочного типа</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЕСТЬ NULL</code></td>
+<td style="text-align: left;"><code>IS NULL</code></td>
+<td style="text-align: left;">Проверка на пустое значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>В ИЕРАРХИИ</code></td>
+<td style="text-align: left;"><code>IN HIERARCHY</code></td>
+<td style="text-align: left;">Проверка вхождения в иерархию</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6_1">6. Агрегатные функции</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская функция</th>
+<th style="text-align: left;">Английская функция</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>СУММА</code></td>
+<td style="text-align: left;"><code>SUM</code></td>
+<td style="text-align: left;">Сумма значений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МИНИМУМ</code></td>
+<td style="text-align: left;"><code>MIN</code></td>
+<td style="text-align: left;">Минимальное значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МАКСИМУМ</code></td>
+<td style="text-align: left;"><code>MAX</code></td>
+<td style="text-align: left;">Максимальное значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СРЕДНЕЕ</code></td>
+<td style="text-align: left;"><code>AVG</code></td>
+<td style="text-align: left;">Среднее арифметическое</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>КОЛИЧЕСТВО</code></td>
+<td style="text-align: left;"><code>COUNT</code></td>
+<td style="text-align: left;">Количество записей</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РАЗЛИЧНЫЕ</code></td>
+<td style="text-align: left;"><code>DISTINCT</code></td>
+<td style="text-align: left;">Уникальные значения</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7_1">7. Виртуальные таблицы</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское название</th>
+<th style="text-align: left;">Английское название</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>РегистрНакопления.Остатки</code></td>
+<td style="text-align: left;"><code>AccumulationRegister.Balances</code></td>
+<td style="text-align: left;">Остатки регистра накопления</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РегистрНакопления.Обороты</code></td>
+<td style="text-align: left;"><code>AccumulationRegister.Turnovers</code></td>
+<td style="text-align: left;">Обороты регистра накопления</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РегистрНакопления.ОстаткиИОбороты</code></td>
+<td style="text-align: left;"><code>AccumulationRegister.BalancesAndTurnovers</code></td>
+<td style="text-align: left;">Остатки и обороты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РегистрСведений.СрезПоследних</code></td>
+<td style="text-align: left;"><code>InformationRegister.SliceLast</code></td>
+<td style="text-align: left;">Срез последних значений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РегистрСведений.СрезПервых</code></td>
+<td style="text-align: left;"><code>InformationRegister.SliceFirst</code></td>
+<td style="text-align: left;">Срез первых значений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РегистрСведений.Подчиненные</code></td>
+<td style="text-align: left;"><code>InformationRegister.Slave</code></td>
+<td style="text-align: left;">Подчинённые записи</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8_1">8. Виды итогов</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский вид</th>
+<th style="text-align: left;">Английский вид</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ИТОГИ</code></td>
+<td style="text-align: left;"><code>TOTALS</code></td>
+<td style="text-align: left;">Общие итоги</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ГРУППИРОВКА</code></td>
+<td style="text-align: left;"><code>GROUPING</code></td>
+<td style="text-align: left;">Детализация по группировкам</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИЕРАРХИЯ</code></td>
+<td style="text-align: left;"><code>HIERARCHY</code></td>
+<td style="text-align: left;">Иерархические итоги</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9_1">9. Псевдонимы таблиц и полей</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское ключевое слово</th>
+<th style="text-align: left;">Английское ключевое слово</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>КАК</code></td>
+<td style="text-align: left;"><code>AS</code></td>
+<td style="text-align: left;">Присвоение псевдонима</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИЗМЕНИТЬ</code></td>
+<td style="text-align: left;"><code>CHANGE</code></td>
+<td style="text-align: left;">Изменение таблицы (во временных таблицах)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИНДЕКСИРОВАТЬ</code></td>
+<td style="text-align: left;"><code>INDEX</code></td>
+<td style="text-align: left;">Индексация временной таблицы</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../three_contur/" class="btn btn-neutral float-left" title="Обоснование трех-контурной системы разработки"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../reglament/" class="btn btn-neutral float-right" title="Регламент разработки">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../three_contur/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../reglament/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

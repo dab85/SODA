@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Soda</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0414\u043e\u043c\u0430\u0448\u043d\u044f\u044f";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Soda
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Домашняя</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Ключевые принципы</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1">Релиз 1</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">Релиз 2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#go-live">График внедрения (Go Live)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">График проекта</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fit-gap-1">Фокус на анализе Fit-Gap фазы 1 и мобилизации команды</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fit-gap-1-2-2026-2026">Fit-Gap анализ Релизов 1-2 (Июнь 2026 – Август 2026)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fit-gap-2026">Уточнение Fit-Gap анализа (Октябрь 2026)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nsda">Вовлеченность проектной команды NSDA</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nsda_1">Задачи для команды NSDA</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">Организационная структура проекта</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Комитеты и встречи</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#soda">Команда проекта Soda</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nsda_2">Команда проекта NSDA</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_5">Следующие шаги</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="three_contur/">Обоснование трех-контурной системы разработки</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="operators/">Операторы языка 1с(рус + англ)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="reglament/">Регламент разработки</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Soda</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Домашняя</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="erp">Внедрение ERP</h1>
+<h2 id="_1">Ключевые принципы</h2>
+<ol>
+<li>Фокус на внедрении стандартной функциональности 1С:ERP WE + 1BIT ERP. Подход "Out of the box first".</li>
+<li>Доработки будут приоритизироваться в зависимости от: критичности для работы "на день первый", потенциала для будущего роста бизнеса</li>
+</ol>
+<p>*WE - мировая редакция</p>
+<p>Поэтапное внедрение функциональности релизами для обеспечения быстрого достижения бизнес-целей проекта:</p>
+<h2 id="1">Релиз 1</h2>
+<ul>
+<li>Финансы (Базовое бюджетирование, Финансы и бухучет, Управление ДЗ/КЗ)</li>
+<li>Закупки</li>
+<li>Склад</li>
+<li>Кадры</li>
+</ul>
+<p><strong>Старт проекта:</strong> Середина июня 2026 г.</p>
+<p><strong>Организационный охват:</strong> 4 юридических лица под управлением холдинга NSDA</p>
+<h2 id="2">Релиз 2</h2>
+<ul>
+<li>Производство и себестоимость</li>
+<li>Производственное планирование</li>
+<li>Интеграция с Track&amp;Trace</li>
+<li>Качество</li>
+<li>Продажи (будет подтверждено, может быть доставлено раньше при необходимости)</li>
+</ul>
+<h2 id="go-live">График внедрения (Go Live)</h2>
+<ul>
+<li><strong>Релиз 1</strong> — Октябрь 2026 г.</li>
+<li><strong>Релиз 2</strong> — Февраль 2027 г.</li>
+</ul>
+<h2 id="_2">График проекта</h2>
+<table>
+<thead>
+<tr>
+<th>2026</th>
+<th>Июнь</th>
+<th>Июль</th>
+<th>Авг.</th>
+<th>Сен.</th>
+<th>Окт.</th>
+<th>Ноя.</th>
+<th>Дек.</th>
+<th>2027</th>
+<th>Янв.</th>
+<th>Фев.</th>
+<th>Март</th>
+<th>Апр.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fit-Gap анализ (Релизы 1-2)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Разработка (Релиз 1)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UAT (Пользовательское тестирование)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Развертывание активной фазы</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Расширенная поддержка</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fit-Gap анализ (Релиз 2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Разработка (Релиз 2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UAT (Релиз 2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>Развертывание (Релиз 2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Расширенная поддержка (Релиз 2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Go Live Релиз 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Go Live Релиз 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fit-gap-1">Фокус на анализе Fit-Gap фазы 1 и мобилизации команды</h2>
+<h3 id="fit-gap-1-2-2026-2026">Fit-Gap анализ Релизов 1-2 (Июнь 2026 – Август 2026)</h3>
+<p><strong>Задачи этапа:</strong>
+- Подготовка и проведение воркшопов
+- Подготовка и утверждение Fit-Gap анализа
+- Подготовка дизайна требований в системе
+- Уточнение плана проекта и бюджета</p>
+<p><strong>Результаты этапа:</strong>
+- Реестр расхождений (Fit/Gap)
+- Дизайн требований в системе – шаги бизнес-процессов с привязкой к реестру расхождений</p>
+<h3 id="fit-gap-2026">Уточнение Fit-Gap анализа (Октябрь 2026)</h3>
+<p><strong>Задачи этапа:</strong>
+- Уточнение Fit-Gap для Релиза 2
+- Доработка дизайна требований Релиза 2
+- Доработка сквозных бизнес-процессов проекта</p>
+<p><strong>Результаты этапа:</strong>
+- Реестр расхождений (Релиз 2)
+- Дизайн требований в системе – шаги бизнес-процессов с привязкой к реестру расхождений (Релиз 2)</p>
+<h3 id="nsda">Вовлеченность проектной команды NSDA</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Роль</th>
+<th style="text-align: left;">Степень вовлеченности</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Эксперты (SME)</td>
+<td style="text-align: left;">50-60%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Функциональные лидеры</td>
+<td style="text-align: left;">50-60%</td>
+</tr>
+<tr>
+<td style="text-align: left;">IT-специалисты</td>
+<td style="text-align: left;">10-20%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nsda_1">Задачи для команды NSDA</h3>
+<ul>
+<li>Участие в воркшопах</li>
+<li>Участие в уточняющих встречах</li>
+<li>Согласование Fit-Gap и дизайна системы</li>
+</ul>
+<h2 id="_3">Организационная структура проекта</h2>
+<h3 id="_4">Комитеты и встречи</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Тип встречи</th>
+<th style="text-align: left;">Участники</th>
+<th style="text-align: left;">Даты встреч</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Руководящий комитет</strong></td>
+<td style="text-align: left;">- NSDA SteerCo<br>- Директор проекта и PM от SODA<br>- Функциональные лидеры</td>
+<td style="text-align: left;">- Август 2026 (утверждение Fit-Gap)<br>- Сентябрь 2026<br>- Октябрь 2026<br>- Декабрь 2026<br>- Февраль 2027<br>- Апрель 2027</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Архитектурный комитет</strong></td>
+<td style="text-align: left;">- Команда SODA<br>- IT-команда<br>- Функциональные лидеры (по запросу)</td>
+<td style="text-align: left;">По запросу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Еженедельный статус-митинг</strong></td>
+<td style="text-align: left;">- Команда SODA<br>- Функциональные лидеры<br>- IT-лидеры</td>
+<td style="text-align: left;">- Первая встреча - 17 июня 2026 г.<br>- Каждую среду</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Воркшопы</strong></td>
+<td style="text-align: left;">- Команда SODA<br>- Функциональные лидеры<br>- Эксперты</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="soda">Команда проекта Soda</h2>
+<ul>
+<li>Alexander Savelev, Директор по продажам</li>
+<li>Ksenia Rodnova, Партнер проекта</li>
+<li>Dmitry Vaschilov, Директор проекта</li>
+<li>Alexandra Kiseleva, Менеджер проекта</li>
+<li>Mikhail Kormanovskiy, Функциональный архитектор</li>
+<li>Dmitry Babich, Технический архитектор</li>
+<li>Olga Rzhanykh, Ведущий аналитик 1С</li>
+<li>Vladislav Shemyakin, Ведущий аналитик 1С</li>
+<li>Roman Lazarev, Аналитик 1С</li>
+</ul>
+<h2 id="nsda_2">Команда проекта NSDA</h2>
+<h2 id="_5">Следующие шаги</h2>
+<ol>
+<li>Подписание письма о выборе партнера</li>
+<li>Подготовка и утверждение договора</li>
+<li>Лицензирование в ОАЭ</li>
+<li>Разработка плана по подготовке и миграции продуктивных и тестовых сред</li>
+<li>Утверждение Устава проекта</li>
+<li>Мобилизация команды и старт фазы Fit-Gap</li>
+</ol>
+<hr />
+<p><em>Спасибо</em></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="three_contur/" class="btn btn-neutral float-right" title="Обоснование трех-контурной системы разработки">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="three_contur/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2026-06-15 12:55:47.650801+00:00
+-->
