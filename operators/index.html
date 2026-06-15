@@ -52,7 +52,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#1_1">Основные типы коллекций в 1С</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_1">Методы работы с коллекциями</a>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Дополнительные типы данных</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Методы работы с коллекциями</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#array-valuelist">Для Массива (Array) и СпискаЗначений (ValueList)</a>
     </li>
@@ -60,47 +62,11 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#valuetable">Для ТаблицыЗначений (ValueTable)</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#1_2">1. Реквизиты объекта</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2">2. Реквизиты формы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#3">3. Элементы формы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#4">4. Свойства элементов формы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#5">5. Методы работы с реквизитами формы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#6">6. Свойства формы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#7">7. Иерархия элементов</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#8">8. События формы и элементов</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#9">9. Сводная таблица соответствий</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#1_3">1. Директивы контекста выполнения</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2_1">2. Директивы переопределения и замены</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#3_1">3. Директивы расширений</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#4_1">4. Прочие директивы</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#_2">Соглашение об именовании переменных и подпрограмм</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1_4">1. Функции, возвращающие значение (геттеры)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2_2">2. Процедуры, устанавливающие значения (сеттеры)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3_2">3. Булевы функции и переменные (предикаты)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_3">Сводная таблица</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#_4">Дополнительные префиксы для булевых значений</a>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Методы колонок ТаблицыЗначений</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#com">Работа с COM и внешними компонентами</a>
     </li>
     </ul>
                 </li>
@@ -212,8 +178,33 @@
 <td style="text-align: left;"><strong>Try ... Except ... EndTry</strong></td>
 <td style="text-align: left;">Обработка исключений</td>
 </tr>
+<tr>
+<td style="text-align: left;"><strong>ВызватьИсключение</strong></td>
+<td style="text-align: left;"><strong>Raise</strong></td>
+<td style="text-align: left;">Принудительный вызов исключения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Выполнить</strong></td>
+<td style="text-align: left;"><strong>Execute</strong></td>
+<td style="text-align: left;">Выполнение строки кода (динамически)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Вычислить</strong></td>
+<td style="text-align: left;"><strong>Eval</strong></td>
+<td style="text-align: left;">Вычисление выражения (динамически)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Перейти</strong></td>
+<td style="text-align: left;"><strong>Goto</strong></td>
+<td style="text-align: left;">Безусловный переход (не рекомендуется)</td>
+</tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Операторы модальных форм (устаревшие, но важные для поддержки) -->
+<p>| <strong>ОткрытьФормуМодально</strong> | <strong>OpenFormModal</strong> | Устаревшее. Открытие модальной формы |
+| <strong>Вопрос</strong> | <strong>DoQueryBox</strong> | Устаревшее. Диалог с вопросом |
+| <strong>Предупреждение</strong> | <strong>DoMessageBox</strong> | Устаревшее. Диалог с предупреждением |
+| <strong>ВвестиЗначение</strong> | <strong>InputValue</strong> | Устаревшее. Ввод значения пользователем |</p>
 <h2 id="1_1">Основные типы коллекций в 1С</h2>
 <table>
 <thead>
@@ -271,7 +262,70 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_1">Методы работы с коллекциями</h2>
+<!-- НОВОЕ: Дополнительные типы данных -->
+<h2 id="_1">Дополнительные типы данных</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское название</th>
+<th style="text-align: left;">English название</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Число</strong></td>
+<td style="text-align: left;"><strong>Number</strong></td>
+<td style="text-align: left;">Числовой тип (15 знаков до, 10 после запятой)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Строка</strong></td>
+<td style="text-align: left;"><strong>String</strong></td>
+<td style="text-align: left;">Строковый тип (фиксированная/неограниченная)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Дата</strong></td>
+<td style="text-align: left;"><strong>Date</strong></td>
+<td style="text-align: left;">Дата и/или время</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Булево</strong></td>
+<td style="text-align: left;"><strong>Boolean</strong></td>
+<td style="text-align: left;">Логический тип (Истина/Ложь)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Неопределено</strong></td>
+<td style="text-align: left;"><strong>Undefined</strong></td>
+<td style="text-align: left;">Отсутствие значения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>NULL</strong></td>
+<td style="text-align: left;"><strong>NULL</strong></td>
+<td style="text-align: left;">Пустая ссылка базы данных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Тип</strong></td>
+<td style="text-align: left;"><strong>Type</strong></td>
+<td style="text-align: left;">Описание типа данных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>УникальныйИдентификатор</strong></td>
+<td style="text-align: left;"><strong>UUID</strong></td>
+<td style="text-align: left;">Глобально уникальный идентификатор</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ДвоичныеДанные</strong></td>
+<td style="text-align: left;"><strong>BinaryData</strong></td>
+<td style="text-align: left;">Бинарные данные (файлы, потоки)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Картинка</strong></td>
+<td style="text-align: left;"><strong>Picture</strong></td>
+<td style="text-align: left;">Графическое изображение</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">Методы работы с коллекциями</h2>
 <h3 id="array-valuelist">Для Массива (Array) и СпискаЗначений (ValueList)</h3>
 <table>
 <thead>
@@ -324,6 +378,10 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные методы Массива -->
+<p>| <code>НайтиСортированный()</code> | <code>FindSorted()</code> | Бинарный поиск в отсортированном массиве |
+| <code>Сдвинуть()</code> | <code>Move()</code> | Сдвиг элементов в массиве |
+| <code>ПолучитьИндекс()</code> | <code>GetIndex()</code> | Получить индекс элемента |</p>
 <h3 id="structure-correspondence">Для Структуры (Structure) и Соответствия (Correspondence)</h3>
 <table>
 <thead>
@@ -366,6 +424,9 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные методы Структуры/Соответствия -->
+<p>| <code>Копировать()</code> | <code>Copy()</code> | Создать копию структуры |
+| <code>Скопировать()</code> | <code>Copy()</code> | Создать копию соответствия |</p>
 <h3 id="valuetable">Для ТаблицыЗначений (ValueTable)</h3>
 <table>
 <thead>
@@ -421,13 +482,100 @@
 <td style="text-align: left;"><code>FindRows()</code></td>
 <td style="text-align: left;">Поиск нескольких строк (с отбором)</td>
 </tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Дополнительные методы ТаблицыЗначений -->
+<p>| <code>Скопировать()</code> | <code>Copy()</code> | Создать копию таблицы |
+| <code>СкопироватьКолонки()</code> | <code>CopyColumns()</code> | Скопировать только структуру колонок |
+| <code>ЗагрузитьКолонку()</code> | <code>LoadColumn()</code> | Загрузить массив в колонку |
+| <code>ВыгрузитьКолонку()</code> | <code>UnloadColumn()</code> | Выгрузить колонку в массив |
+| <code>ЗаполнитьЗначения()</code> | <code>FillValues()</code> | Заполнить колонку значением |
+| <code>Получить()</code> | <code>Get()</code> | Получить строку по индексу |
+| <code>Индекс()</code> | <code>IndexOf()</code> | Получить индекс строки |
+| <code>Переместить()</code> | <code>Move()</code> | Переместить строку |
+| <code>ВыбратьСтроку()</code> | <code>ChooseRow()</code> | Интерактивный выбор строки |</p>
+<!-- НОВОЕ: Методы колонок ТаблицыЗначений -->
+<h3 id="_3">Методы колонок ТаблицыЗначений</h3>
+<table>
+<thead>
 <tr>
-<td style="text-align: left;"># Элементы форм и реквизиты объектов (русский vs английский)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">English метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Колонки.Добавить()</code></td>
+<td style="text-align: left;"><code>Columns.Add()</code></td>
+<td style="text-align: left;">Добавить колонку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Удалить()</code></td>
+<td style="text-align: left;"><code>Columns.Delete()</code></td>
+<td style="text-align: left;">Удалить колонку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Очистить()</code></td>
+<td style="text-align: left;"><code>Columns.Clear()</code></td>
+<td style="text-align: left;">Удалить все колонки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Количество()</code></td>
+<td style="text-align: left;"><code>Columns.Count()</code></td>
+<td style="text-align: left;">Число колонок</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Найти()</code></td>
+<td style="text-align: left;"><code>Columns.Find()</code></td>
+<td style="text-align: left;">Найти колонку по имени</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Индекс()</code></td>
+<td style="text-align: left;"><code>Columns.IndexOf()</code></td>
+<td style="text-align: left;">Индекс колонки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Колонки.Получить()</code></td>
+<td style="text-align: left;"><code>Columns.Get()</code></td>
+<td style="text-align: left;">Получить колонку по индексу</td>
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Работа с COM-объектами и внешними компонентами -->
+<h2 id="com">Работа с COM и внешними компонентами</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод/свойство</th>
+<th style="text-align: left;">English метод/свойство</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>СоздатьОбъект()</code></td>
+<td style="text-align: left;"><code>CreateObject()</code></td>
+<td style="text-align: left;">Создание COM-объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьCOMОбъект()</code></td>
+<td style="text-align: left;"><code>GetCOMObject()</code></td>
+<td style="text-align: left;">Получение существующего COM-объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПодключитьВнешнююКомпоненту()</code></td>
+<td style="text-align: left;"><code>AttachAddIn()</code></td>
+<td style="text-align: left;">Подключение внешней компоненты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый COMОбъект</code></td>
+<td style="text-align: left;"><code>New COMObject</code></td>
+<td style="text-align: left;">Создание COM-объекта через конструктор</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vs">Элементы форм и реквизиты объектов (русский vs английский)</h1>
 <h2 id="1_2">1. Реквизиты объекта</h2>
 <table>
 <thead>
@@ -462,6 +610,34 @@
 <td style="text-align: left;"><code>Строка табличной части</code></td>
 <td style="text-align: left;"><code>Tabular section row</code></td>
 <td style="text-align: left;">Элемент коллекции табличной части</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Предопределённые данные -->
+<h2 id="11">1.1. Предопределённые данные</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский термин</th>
+<th style="text-align: left;">Английский термин</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ПредопределённоеЗначение()</code></td>
+<td style="text-align: left;"><code>PredefinedValue()</code></td>
+<td style="text-align: left;">Получение предопределённого значения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьИмяПредопределенного()</code></td>
+<td style="text-align: left;"><code>GetPredefinedName()</code></td>
+<td style="text-align: left;">Имя предопределённого элемента</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьСсылкуПредопределенного()</code></td>
+<td style="text-align: left;"><code>GetPredefinedRef()</code></td>
+<td style="text-align: left;">Ссылка предопределённого элемента</td>
 </tr>
 </tbody>
 </table>
@@ -574,6 +750,15 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные элементы форм -->
+<p>| <code>Поле текстового документа</code> | <code>Text document field</code> | Многострочное поле с подсветкой |
+| <code>Поле HTML документа</code> | <code>HTML document field</code> | Встроенный браузер |
+| <code>Поле географической схемы</code> | <code>Geographical schema field</code> | Карта/GIS |
+| <code>Поле графической схемы</code> | <code>Graphical schema field</code> | Блок-схема/диаграмма |
+| <code>Поле календаря</code> | <code>Calendar field</code> | Элемент выбора даты |
+| <code>Поле индикатора</code> | <code>Progress bar field</code> | Индикатор прогресса |
+| <code>Поле полосы регулирования</code> | <code>Track bar field</code> | Ползунок/слайдер |
+| <code>Поле картинки</code> | <code>Picture field</code> | Отображение изображений |</p>
 <h2 id="4">4. Свойства элементов формы</h2>
 <table>
 <thead>
@@ -626,6 +811,22 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные свойства элементов -->
+<p>| <code>АвтоОтметкаНезаполненного</code> | <code>AutoMarkIncomplete</code> | Автоматическая отметка пустого поля |
+| <code>РедактированиеТекста</code> | <code>EditText</code> | Разрешение редактирования |
+| <code>МногострочныйРежим</code> | <code>MultiLine</code> | Многострочный ввод |
+| <code>РежимПароля</code> | <code>PasswordMode</code> | Скрытие ввода (пароль) |
+| <code>КнопкаВыбора</code> | <code>ChoiceButton</code> | Кнопка выбора (F4) |
+| <code>КнопкаОчистки</code> | <code>ClearButton</code> | Кнопка очистки (x) |
+| <code>КнопкаОткрытия</code> | <code>OpenButton</code> | Кнопка открытия (ссылка) |
+| <code>КнопкаСоздания</code> | <code>CreateButton</code> | Кнопка создания нового |
+| <code>КнопкаСпискаВыбора</code> | <code>ChoiceListButton</code> | Кнопка списка выбора |
+| <code>РастягиватьПоГоризонтали</code> | <code>HorizontalStretch</code> | Авто-растяжение по ширине |
+| <code>РастягиватьПоВертикали</code> | <code>VerticalStretch</code> | Авто-растяжение по высоте |
+| <code>Ширина</code> | <code>Width</code> | Ширина элемента |
+| <code>Высота</code> | <code>Height</code> | Высота элемента |
+| <code>МаксимальнаяШирина</code> | <code>MaxWidth</code> | Максимальная ширина |
+| <code>МаксимальнаяВысота</code> | <code>MaxHeight</code> | Максимальная высота |</p>
 <h2 id="5">5. Методы работы с реквизитами формы</h2>
 <table>
 <thead>
@@ -648,6 +849,12 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные методы формы -->
+<p>| <code>Новый РеквизитФормы</code> | <code>New FormAttribute</code> | Конструктор реквизита формы |
+| <code>Новый ОписаниеТипов</code> | <code>New TypeDescription</code> | Описание типа данных |
+| <code>Новый КвалификаторыСтроки</code> | <code>New StringQualifiers</code> | Квалификатор строки |
+| <code>Новый КвалификаторыЧисла</code> | <code>New NumberQualifiers</code> | Квалификатор числа |
+| <code>Новый КвалификаторыДаты</code> | <code>New DateQualifiers</code> | Квалификатор даты |</p>
 <h2 id="6">6. Свойства формы</h2>
 <table>
 <thead>
@@ -690,6 +897,17 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные свойства формы -->
+<p>| <code>ТекущийЭлемент</code> | <code>CurrentItem</code> | Активный элемент формы |
+| <code>ТекущаяСтрока</code> | <code>CurrentRow</code> | Текущая строка таблицы |
+| <code>ТекущиеДанные</code> | <code>CurrentData</code> | Данные текущей строки |
+| <code>Заголовок</code> | <code>Title</code> | Заголовок окна формы |
+| <code>АвтоЗаголовок</code> | <code>AutoTitle</code> | Автоформирование заголовка |
+| <code>РежимОткрытияОкна</code> | <code>WindowOpeningMode</code> | Режим окна (блокировать/не блокировать) |
+| <code>ПоложениеКоманднойПанели</code> | <code>CommandBarLocation</code> | Расположение панели команд |
+| <code>Группировка</code> | <code>Grouping</code> | Горизонтальная/вертикальная группировка |
+| <code>Ширина</code> | <code>Width</code> | Ширина формы |
+| <code>Высота</code> | <code>Height</code> | Высота формы |</p>
 <h2 id="7">7. Иерархия элементов</h2>
 <table>
 <thead>
@@ -759,6 +977,29 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные события -->
+<p>| <code>ПриСозданииНаСервере</code> | <code>OnCreateAtServer</code> | При создании формы на сервере |
+| <code>ПриОткрытии</code> | <code>OnOpen</code> | При открытии формы на клиенте |
+| <code>ОбработкаВыбора</code> | <code>ChoiceProcessing</code> | При выборе из другой формы |
+| <code>ОбработкаОповещения</code> | <code>NotificationProcessing</code> | При получении оповещения |
+| <code>ПередЗакрытием</code> | <code>BeforeClose</code> | Перед закрытием формы |
+| <code>ПриЗакрытии</code> | <code>OnClose</code> | При закрытии формы |
+| <code>ПриИзмененииПараметровЭкрана</code> | <code>OnChangeDisplaySettings</code> | При изменении DPI/разрешения |
+| <code>ОбработкаАктивизацииСтроки</code> | <code>LineActivationProcessing</code> | При активации строки таблицы |
+| <code>Выбор</code> | <code>Selection</code> | При выборе строки таблицы |
+| <code>ПриАктивизацииСтроки</code> | <code>OnActivateRow</code> | При активации строки |
+| <code>ПриАктивизацииПоля</code> | <code>OnActivateField</code> | При активации колонки таблицы |
+| <code>ПередНачаломДобавления</code> | <code>BeforeAddRow</code> | Перед добавлением строки |
+| <code>ПередНачаломИзменения</code> | <code>BeforeEditRow</code> | Перед редактированием строки |
+| <code>ПередУдалением</code> | <code>BeforeDeleteRow</code> | Перед удалением строки |
+| <code>НачалоВыбора</code> | <code>StartChoice</code> | При начале выбора (F4) |
+| <code>НачалоВыбораИзСписка</code> | <code>StartChoiceFromList</code> | При начале выбора из списка |
+| <code>Очистка</code> | <code>Clearing</code> | При очистке поля |
+| <code>Регулирование</code> | <code>Tuning</code> | При изменении ползунка |
+| <code>Открытие</code> | <code>Opening</code> | При открытии ссылки (Ctrl+Click) |
+| <code>ОбработкаВыбораПоля</code> | <code>FieldChoiceProcessing</code> | При выборе из поля ввода |
+| <code>АвтоПодбор</code> | <code>AutoComplete</code> | При автоподборе текста |
+| <code>ОкончаниеВводаТекста</code> | <code>TextEditEnd</code> | При окончании ввода текста |</p>
 <h2 id="9">9. Сводная таблица соответствий</h2>
 <table>
 <thead>
@@ -826,7 +1067,7 @@
 </tr>
 <tr>
 <td style="text-align: left;"><code>Элементы</code></td>
-<td style="text-align: left;"><code>Elements</code></td>
+<td style="text-align: left;"><code>Items</code></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>Команды</code></td>
@@ -856,13 +1097,10 @@
 <td style="text-align: left;"><code>ПриИзменении</code></td>
 <td style="text-align: left;"><code>OnChange</code></td>
 </tr>
-<tr>
-<td style="text-align: left;"># Директивы языка 1С и их английские аналоги</td>
-<td style="text-align: left;"></td>
-</tr>
 </tbody>
 </table>
-<h2 id="1_3">1. Директивы контекста выполнения</h2>
+<h1 id="1_3">Директивы языка 1С и их английские аналоги</h1>
+<h2 id="1_4">1. Директивы контекста выполнения</h2>
 <table>
 <thead>
 <tr>
@@ -961,34 +1199,10 @@
 <td style="text-align: left;"><code>&amp;Before("MethodName")</code></td>
 <td style="text-align: left;">Выполнение перед методом расширения</td>
 </tr>
-<tr>
-<td style="text-align: left;"><code>&amp;Добавить("ИмяРасширения")</code></td>
-<td style="text-align: left;"><code>&amp;Add("ExtensionName")</code></td>
-<td style="text-align: left;">Добавление элемента в расширение</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&amp;ДляРасширения("ИмяРасширения")</code></td>
-<td style="text-align: left;"><code>&amp;ForExtension("ExtensionName")</code></td>
-<td style="text-align: left;">Указывает расширение для элемента</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&amp;ИсключитьИзРасширения("ИмяРасширения")</code></td>
-<td style="text-align: left;"><code>&amp;ExcludeFromExtension("ExtensionName")</code></td>
-<td style="text-align: left;">Исключение элемента из расширения</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&amp;Новый</code></td>
-<td style="text-align: left;"><code>&amp;New</code></td>
-<td style="text-align: left;">Новый метод в расширении</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&amp;ДобавитьОбработчик("ИмяСобытия")</code></td>
-<td style="text-align: left;"><code>&amp;AddHandler("EventName")</code></td>
-<td style="text-align: left;">Добавление обработчика события</td>
-</tr>
 </tbody>
 </table>
-<h2 id="4_1">4. Прочие директивы</h2>
+<!-- НОВОЕ: Директивы компиляции -->
+<h2 id="5_1">5. Директивы компиляции и метаданных</h2>
 <table>
 <thead>
 <tr>
@@ -999,20 +1213,454 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>&amp;ЗапускПользовательскогоКода</code></td>
-<td style="text-align: left;"><code>&amp;RunUserCode</code></td>
-<td style="text-align: left;">Маркер для пользовательского кода</td>
+<td style="text-align: left;"><code>&amp;НаКлиентеНаСервереБезКонтекста</code></td>
+<td style="text-align: left;"><code>&amp;AtClientAtServerWithoutContext</code></td>
+<td style="text-align: left;">Общий модуль без контекста</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>&amp;ОбработкаКомандногоИнтерфейса</code></td>
-<td style="text-align: left;"><code>&amp;CommandInterfaceHandler</code></td>
-<td style="text-align: left;">Обработчик командного интерфейса</td>
+<td style="text-align: left;"><code>&amp;Вместо("ИмяМетода", "ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;InsteadOf("MethodName", "ExtensionName")</code></td>
+<td style="text-align: left;">Расширение с указанием имени</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;После("ИмяМетода", "ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;After("MethodName", "ExtensionName")</code></td>
+<td style="text-align: left;">После метода с указанием расширения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&amp;Перед("ИмяМетода", "ИмяРасширения")</code></td>
+<td style="text-align: left;"><code>&amp;Before("MethodName", "ExtensionName")</code></td>
+<td style="text-align: left;">Перед методом с указанием расширения</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_2">Соглашение об именовании переменных и подпрограмм</h2>
+<!-- НОВОЕ: Работа с метаданными -->
+<h1 id="metadata">Работа с метаданными (Metadata)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод/свойство</th>
+<th style="text-align: left;">Английский метод/свойство</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Метаданные</code></td>
+<td style="text-align: left;"><code>Metadata</code></td>
+<td style="text-align: left;">Корневой объект метаданных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Справочники</code></td>
+<td style="text-align: left;"><code>Metadata.Catalogs</code></td>
+<td style="text-align: left;">Коллекция справочников</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Документы</code></td>
+<td style="text-align: left;"><code>Metadata.Documents</code></td>
+<td style="text-align: left;">Коллекция документов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.РегистрыСведений</code></td>
+<td style="text-align: left;"><code>Metadata.InformationRegisters</code></td>
+<td style="text-align: left;">Коллекция регистров сведений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.РегистрыНакопления</code></td>
+<td style="text-align: left;"><code>Metadata.AccumulationRegisters</code></td>
+<td style="text-align: left;">Коллекция регистров накопления</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.ПланыВидовХарактеристик</code></td>
+<td style="text-align: left;"><code>Metadata.ChartsOfCharacteristicTypes</code></td>
+<td style="text-align: left;">Планы видов характеристик</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.ПланыСчетов</code></td>
+<td style="text-align: left;"><code>Metadata.ChartsOfAccounts</code></td>
+<td style="text-align: left;">Планы счетов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.ПланыВидовРасчета</code></td>
+<td style="text-align: left;"><code>Metadata.ChartsOfCalculationTypes</code></td>
+<td style="text-align: left;">Планы видов расчёта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.БизнесПроцессы</code></td>
+<td style="text-align: left;"><code>Metadata.BusinessProcesses</code></td>
+<td style="text-align: left;">Бизнес-процессы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Задачи</code></td>
+<td style="text-align: left;"><code>Metadata.Tasks</code></td>
+<td style="text-align: left;">Задачи</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Реквизиты</code></td>
+<td style="text-align: left;"><code>Metadata.Attributes</code></td>
+<td style="text-align: left;">Реквизиты объекта метаданных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.ТабличныеЧасти</code></td>
+<td style="text-align: left;"><code>Metadata.TabularSections</code></td>
+<td style="text-align: left;">Табличные части</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Измерения</code></td>
+<td style="text-align: left;"><code>Metadata.Dimensions</code></td>
+<td style="text-align: left;">Измерения регистра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Метаданные.Ресурсы</code></td>
+<td style="text-align: left;"><code>Metadata.Resources</code></td>
+<td style="text-align: left;">Ресурсы регистра</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолноеИмя()</code></td>
+<td style="text-align: left;"><code>FullName()</code></td>
+<td style="text-align: left;">Полное имя объекта метаданных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Имя</code></td>
+<td style="text-align: left;"><code>Name</code></td>
+<td style="text-align: left;">Имя объекта метаданных</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Синоним</code></td>
+<td style="text-align: left;"><code>Synonym</code></td>
+<td style="text-align: left;">Представление объекта</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Комментарий</code></td>
+<td style="text-align: left;"><code>Comment</code></td>
+<td style="text-align: left;">Комментарий к объекту</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Общие модули БСП -->
+<h1 id="_4">Популярные функции БСП (Библиотека стандартных подсистем)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская функция</th>
+<th style="text-align: left;">Английская функция</th>
+<th style="text-align: left;">Модуль</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ЗначениеРеквизитаОбъекта()</code></td>
+<td style="text-align: left;"><code>ObjectAttributeValue()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Получение реквизита по ссылке</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЗначенияРеквизитовОбъекта()</code></td>
+<td style="text-align: left;"><code>ObjectAttributeValues()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Получение нескольких реквизитов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТаблицаЗначенийВМассив()</code></td>
+<td style="text-align: left;"><code>ValueTableToArray()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Конвертация ТЗ в массив структур</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СкопироватьРекурсивно()</code></td>
+<td style="text-align: left;"><code>CopyRecursive()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Глубокое копирование</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СравнитьДанные()</code></td>
+<td style="text-align: left;"><code>CompareData()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Сравнение двух значений</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СтруктураПоМенеджеруЗаписи()</code></td>
+<td style="text-align: left;"><code>StructureByRecordManager()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Структура из менеджера записи</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МенеджерОбъектаПоПолномуИмени()</code></td>
+<td style="text-align: left;"><code>ObjectManagerByFullName()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Получение менеджера по имени</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЗначениеВСтрокуВнутр()</code></td>
+<td style="text-align: left;"><code>ValueToStringInternal()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Сериализация в строку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЗначениеИзСтрокиВнутр()</code></td>
+<td style="text-align: left;"><code>ValueFromStringInternal()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Десериализация из строки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СтрокаЛатиницей()</code></td>
+<td style="text-align: left;"><code>LatinString()</code></td>
+<td style="text-align: left;"><code>СтроковыеФункцииКлиентСервер</code></td>
+<td style="text-align: left;">Транслитерация</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СтрокаВЧисло()</code></td>
+<td style="text-align: left;"><code>StringToNumber()</code></td>
+<td style="text-align: left;"><code>СтроковыеФункцииКлиентСервер</code></td>
+<td style="text-align: left;">Преобразование строки в число</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПодставитьПараметрыВСтроку()</code></td>
+<td style="text-align: left;"><code>SubstituteParametersInString()</code></td>
+<td style="text-align: left;"><code>СтроковыеФункцииКлиентСервер</code></td>
+<td style="text-align: left;">Подстановка параметров</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РазложитьСтрокуВМассивПодстрок()</code></td>
+<td style="text-align: left;"><code>SplitStringIntoSubstringsArray()</code></td>
+<td style="text-align: left;"><code>СтроковыеФункцииКлиентСервер</code></td>
+<td style="text-align: left;">Разделение строки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СокрЛП()</code></td>
+<td style="text-align: left;"><code>TrimAll()</code></td>
+<td style="text-align: left;"><code>СтроковыеФункцииКлиентСервер</code></td>
+<td style="text-align: left;">Удаление пробелов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НайтиВМассиве()</code></td>
+<td style="text-align: left;"><code>FindInArray()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначенияКлиентСервер</code></td>
+<td style="text-align: left;">Поиск в массиве</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЗначениеВМассиве()</code></td>
+<td style="text-align: left;"><code>ValueInArray()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначенияКлиентСервер</code></td>
+<td style="text-align: left;">Проверка вхождения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>КлиентПоддерживаетСжатие()</code></td>
+<td style="text-align: left;"><code>ClientSupportsCompression()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначенияКлиентСервер</code></td>
+<td style="text-align: left;">Проверка сжатия</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РазделитьФИО()</code></td>
+<td style="text-align: left;"><code>SplitFullName()</code></td>
+<td style="text-align: left;"><code>ФизическиеЛицаКлиентСервер</code></td>
+<td style="text-align: left;">Разделение ФИО</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ФамилияИнициалыФизЛица()</code></td>
+<td style="text-align: left;"><code>IndividualLastNameAndInitials()</code></td>
+<td style="text-align: left;"><code>ФизическиеЛицаКлиентСервер</code></td>
+<td style="text-align: left;">Фамилия и инициалы</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПадежПоЧислу()</code></td>
+<td style="text-align: left;"><code>DeclensionByNumber()</code></td>
+<td style="text-align: left;"><code>СклонениеПредставленийОбъектов</code></td>
+<td style="text-align: left;">Склонение по числу</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПредставлениеСсылки()</code></td>
+<td style="text-align: left;"><code>RefPresentation()</code></td>
+<td style="text-align: left;"><code>ОбщегоНазначения</code></td>
+<td style="text-align: left;">Представление ссылки</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Работа с файлами и двоичными данными -->
+<h1 id="_5">Работа с файлами и двоичными данными</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод</th>
+<th style="text-align: left;">Английский метод</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Новый ДвоичныеДанные(Путь)</code></td>
+<td style="text-align: left;"><code>New BinaryData(Path)</code></td>
+<td style="text-align: left;">Загрузка файла в память</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Записать(Путь)</code></td>
+<td style="text-align: left;"><code>Write(Path)</code></td>
+<td style="text-align: left;">Запись двоичных данных в файл</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьРазмер()</code></td>
+<td style="text-align: left;"><code>GetSize()</code></td>
+<td style="text-align: left;">Размер данных в байтах</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьДвоичныеДанныеИзBase64Строки()</code></td>
+<td style="text-align: left;"><code>GetBinaryDataFromBase64String()</code></td>
+<td style="text-align: left;">Декодирование Base64</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьBase64СтрокуИзДвоичныхДанных()</code></td>
+<td style="text-align: left;"><code>GetBase64StringFromBinaryData()</code></td>
+<td style="text-align: left;">Кодирование в Base64</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ПотокВПамяти()</code></td>
+<td style="text-align: left;"><code>New MemoryStream()</code></td>
+<td style="text-align: left;">Поток в оперативной памяти</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ФайловыйПоток()</code></td>
+<td style="text-align: left;"><code>New FileStream()</code></td>
+<td style="text-align: left;">Поток из файла</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЧтениеДанных()</code></td>
+<td style="text-align: left;"><code>New DataReader()</code></td>
+<td style="text-align: left;">Чтение из потока</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЗаписьДанных()</code></td>
+<td style="text-align: left;"><code>New DataWriter()</code></td>
+<td style="text-align: left;">Запись в поток</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЧтениеТекста()</code></td>
+<td style="text-align: left;"><code>New TextReader()</code></td>
+<td style="text-align: left;">Чтение текстового файла</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЗаписьТекста()</code></td>
+<td style="text-align: left;"><code>New TextWriter()</code></td>
+<td style="text-align: left;">Запись текстового файла</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЧтениеXML()</code></td>
+<td style="text-align: left;"><code>New XMLReader()</code></td>
+<td style="text-align: left;">Чтение XML</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЗаписьXML()</code></td>
+<td style="text-align: left;"><code>New XMLWriter()</code></td>
+<td style="text-align: left;">Запись XML</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЧтениеJSON()</code></td>
+<td style="text-align: left;"><code>New JSONReader()</code></td>
+<td style="text-align: left;">Чтение JSON</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ЗаписьJSON()</code></td>
+<td style="text-align: left;"><code>New JSONWriter()</code></td>
+<td style="text-align: left;">Запись JSON</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ПостроительDOM()</code></td>
+<td style="text-align: left;"><code>New DOMBuilder()</code></td>
+<td style="text-align: left;">Построитель DOM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ПреобразованиеXSL()</code></td>
+<td style="text-align: left;"><code>New XSLTransform()</code></td>
+<td style="text-align: left;">XSL-трансформация</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: HTTP-сервисы и интеграция -->
+<h1 id="http-">HTTP-сервисы и интеграция</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский метод/класс</th>
+<th style="text-align: left;">Английский метод/класс</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Новый HTTPСоединение()</code></td>
+<td style="text-align: left;"><code>New HTTPConnection()</code></td>
+<td style="text-align: left;">Соединение с внешним сервером</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый HTTPЗапрос()</code></td>
+<td style="text-align: left;"><code>New HTTPRequest()</code></td>
+<td style="text-align: left;">Формирование HTTP-запроса</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Получить()</code></td>
+<td style="text-align: left;"><code>Get()</code></td>
+<td style="text-align: left;">GET-запрос</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ОтправитьДляОбработки()</code></td>
+<td style="text-align: left;"><code>Post()</code></td>
+<td style="text-align: left;">POST-запрос</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Записать()</code></td>
+<td style="text-align: left;"><code>Put()</code></td>
+<td style="text-align: left;">PUT-запрос</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Удалить()</code></td>
+<td style="text-align: left;"><code>Delete()</code></td>
+<td style="text-align: left;">DELETE-запрос</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьТелоКакСтроку()</code></td>
+<td style="text-align: left;"><code>GetBodyAsString()</code></td>
+<td style="text-align: left;">Тело ответа как строка</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПолучитьТелоКакДвоичныеДанные()</code></td>
+<td style="text-align: left;"><code>GetBodyAsBinaryData()</code></td>
+<td style="text-align: left;">Тело ответа как двоичные данные</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>КодСостояния</code></td>
+<td style="text-align: left;"><code>StatusCode</code></td>
+<td style="text-align: left;">HTTP-код ответа</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Заголовки</code></td>
+<td style="text-align: left;"><code>Headers</code></td>
+<td style="text-align: left;">Заголовки HTTP</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ИнтернетПочтовыйПрофиль()</code></td>
+<td style="text-align: left;"><code>New InternetMailProfile()</code></td>
+<td style="text-align: left;">Профиль почты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый ИнтернетПочта()</code></td>
+<td style="text-align: left;"><code>New InternetMail()</code></td>
+<td style="text-align: left;">Работа с почтой</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый WSПрокси()</code></td>
+<td style="text-align: left;"><code>New WSProxy()</code></td>
+<td style="text-align: left;">SOAP-веб-сервис</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Новый WSОпределения()</code></td>
+<td style="text-align: left;"><code>New WSDefinitions()</code></td>
+<td style="text-align: left;">WSDL-описание сервиса</td>
+</tr>
+</tbody>
+</table>
+<h1 id="_6">Соглашение об именовании переменных и подпрограмм</h1>
 <p>Для повышения читаемости и самодокументируемости кода рекомендуется использовать следующие префиксы.</p>
-<h3 id="1_4">1. Функции, возвращающие значение (геттеры)</h3>
+<h2 id="1_5">1. Функции, возвращающие значение (геттеры)</h2>
 <p>Функции, которые <strong>возвращают</strong> значение, должны начинаться с префикса <code>Get</code>.</p>
 <table>
 <thead>
@@ -1044,7 +1692,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2_2">2. Процедуры, устанавливающие значения (сеттеры)</h3>
+<h2 id="2_2">2. Процедуры, устанавливающие значения (сеттеры)</h2>
 <p>Процедуры, которые <strong>устанавливают</strong> значения свойств или состояния, должны начинаться с префикса <code>Set</code>.</p>
 <table>
 <thead>
@@ -1076,7 +1724,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="3_2">3. Булевы функции и переменные (предикаты)</h3>
+<h2 id="3_2">3. Булевы функции и переменные (предикаты)</h2>
 <p>Функции и переменные, которые возвращают или хранят <strong>логическое значение</strong> (Истина/Ложь), должны начинаться с префикса <code>Is</code>.</p>
 <table>
 <thead>
@@ -1104,11 +1752,11 @@
 <td style="text-align: left;">Проверка заполненности</td>
 <td style="text-align: left;"><code>Is</code></td>
 <td style="text-align: left;"><code>Заполнено</code></td>
-<td style="text-align: left;"><code>IsFilled</code></td>
+<td style="text-align: left;"><code>IsFilled()</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="_3">Сводная таблица</h3>
+<h2 id="_7">Сводная таблица</h2>
 <table>
 <thead>
 <tr>
@@ -1131,7 +1779,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_4">Дополнительные префиксы для булевых значений</h3>
+<h2 id="_8">Дополнительные префиксы для булевых значений</h2>
 <table>
 <thead>
 <tr>
@@ -1158,8 +1806,66 @@
 </tr>
 </tbody>
 </table>
-<h1 id="1_5">Конструкции языка запросов 1С</h1>
-<h2 id="1_6">1. Основные операторы</h2>
+<!-- НОВОЕ: Системные перечисления -->
+<h1 id="system-enums">Системные перечисления (System Enums)</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русское название</th>
+<th style="text-align: left;">English название</th>
+<th style="text-align: left;">Значения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ВидСравнения</code></td>
+<td style="text-align: left;"><code>ComparisonType</code></td>
+<td style="text-align: left;"><code>Равно/Equal</code>, <code>НеРавно/NotEqual</code>, <code>Больше/Greater</code>, <code>Меньше/Less</code>, <code>ВСписке/InList</code>, <code>ВИерархии/InHierarchyByHierarchy</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РежимДиалогаВопрос</code></td>
+<td style="text-align: left;"><code>QuestionDialogMode</code></td>
+<td style="text-align: left;"><code>ДаНет/YesNo</code>, <code>ДаНетОтмена/YesNoCancel</code>, <code>ОК/OK</code>, <code>ОКОтмена/OKCancel</code>, <code>ПовторитьОтмена/RetryCancel</code>, <code>ПрерватьПовторитьПропустить/AbortRetryIgnore</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РежимОткрытияОкнаФормы</code></td>
+<td style="text-align: left;"><code>FormWindowOpeningMode</code></td>
+<td style="text-align: left;"><code>Независимый/Independent</code>, <code>БлокироватьОкноВладельца/LockOwnerWindow</code>, <code>БлокироватьВесьИнтерфейс/LockWholeInterface</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РежимЗаписиДокумента</code></td>
+<td style="text-align: left;"><code>DocumentWriteMode</code></td>
+<td style="text-align: left;"><code>Запись/Write</code>, <code>ОтменаПроведения/UndoPosting</code>, <code>Проведение/Posting</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РежимПроведенияДокумента</code></td>
+<td style="text-align: left;"><code>DocumentPostingMode</code></td>
+<td style="text-align: left;"><code>Неоперативный/RealTime</code>, <code>Оперативный/Regular</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТипКодаПланаВидовХарактеристик</code></td>
+<td style="text-align: left;"><code>ChartOfCharacteristicTypesCodeType</code></td>
+<td style="text-align: left;"><code>Строка/String</code>, <code>Число/Number</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТипНомераДокумента</code></td>
+<td style="text-align: left;"><code>DocumentNumberType</code></td>
+<td style="text-align: left;"><code>Строка/String</code>, <code>Число/Number</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИспользованиеРежимаПроведения</code></td>
+<td style="text-align: left;"><code>PostingModeUsage</code></td>
+<td style="text-align: left;"><code>НеИспользовать/Don'tUse</code>, <code>Использовать/Use</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ИспользованиеБазовогоЗначения</code></td>
+<td style="text-align: left;"><code>BaseValueUsage</code></td>
+<td style="text-align: left;"><code>НеИспользовать/Don'tUse</code>, <code>Использовать/Use</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="1_6">Конструкции языка запросов 1С</h1>
+<h2 id="1_7">1. Основные операторы</h2>
 <table>
 <thead>
 <tr>
@@ -1211,6 +1917,12 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные операторы запросов -->
+<p>| <code>ВЫБРАТЬ РАЗРЕШЕННЫЕ</code> | <code>SELECT ALLOWED</code> | С учётом прав доступа RLS |
+| <code>ВЫБРАТЬ ПЕРВЫЕ N</code> | <code>SELECT TOP N</code> | Ограничение количества записей |
+| <code>ВЫБРАТЬ РАЗЛИЧНЫЕ</code> | <code>SELECT DISTINCT</code> | Уникальные записи |
+| <code>ПОМЕСТИТЬ</code> | <code>INTO</code> | Сохранение во временную таблицу |
+| <code>УНИЧТОЖИТЬ</code> | <code>DROP</code> | Удаление временной таблицы |</p>
 <h2 id="2_3">2. Операторы соединения таблиц</h2>
 <table>
 <thead>
@@ -1275,7 +1987,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="4_2">4. Операторы сравнения</h2>
+<h2 id="4_1">4. Операторы сравнения</h2>
 <table>
 <thead>
 <tr>
@@ -1317,7 +2029,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="5_1">5. Специальные операторы</h2>
+<h2 id="5_2">5. Специальные операторы</h2>
 <table>
 <thead>
 <tr>
@@ -1359,6 +2071,12 @@
 </tr>
 </tbody>
 </table>
+<!-- НОВОЕ: Дополнительные специальные операторы -->
+<p>| <code>МЕЖДУ ... И ...</code> | <code>BETWEEN ... AND ...</code> | Диапазон значений |
+| <code>ПОДОБНО "%тек%"</code> | <code>LIKE "%text%"</code> | Шаблон поиска подстроки |
+| <code>ПОДОБНО "тек%"</code> | <code>LIKE "text%"</code> | Шаблон начала строки |
+| <code>ПОДОБНО "_екс%"</code> | <code>LIKE "_ext%"</code> | Один любой символ |
+| <code>ССЫЛКА Справочник.Номенклатура</code> | <code>REFERENCE Catalog.Goods</code> | Проверка типа ссылки |</p>
 <h2 id="6_1">6. Агрегатные функции</h2>
 <table>
 <thead>
@@ -1401,7 +2119,149 @@
 </tr>
 </tbody>
 </table>
-<h2 id="7_1">7. Виртуальные таблицы</h2>
+<!-- НОВОЕ: Дополнительные функции запросов -->
+<h2 id="7_1">7. Функции работы с датами в запросах</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская функция</th>
+<th style="text-align: left;">Английская функция</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>НАЧАЛОПЕРИОДА(..., ДЕНЬ)</code></td>
+<td style="text-align: left;"><code>BEGINOFPERIOD(..., DAY)</code></td>
+<td style="text-align: left;">Начало дня</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НАЧАЛОПЕРИОДА(..., МЕСЯЦ)</code></td>
+<td style="text-align: left;"><code>BEGINOFPERIOD(..., MONTH)</code></td>
+<td style="text-align: left;">Начало месяца</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НАЧАЛОПЕРИОДА(..., ГОД)</code></td>
+<td style="text-align: left;"><code>BEGINOFPERIOD(..., YEAR)</code></td>
+<td style="text-align: left;">Начало года</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>КОНЕЦПЕРИОДА(..., МЕСЯЦ)</code></td>
+<td style="text-align: left;"><code>ENDOFPERIOD(..., MONTH)</code></td>
+<td style="text-align: left;">Конец месяца</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ГОД(...)</code></td>
+<td style="text-align: left;"><code>YEAR(...)</code></td>
+<td style="text-align: left;">Год из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МЕСЯЦ(...)</code></td>
+<td style="text-align: left;"><code>MONTH(...)</code></td>
+<td style="text-align: left;">Месяц из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ДЕНЬ(...)</code></td>
+<td style="text-align: left;"><code>DAY(...)</code></td>
+<td style="text-align: left;">День из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЧАС(...)</code></td>
+<td style="text-align: left;"><code>HOUR(...)</code></td>
+<td style="text-align: left;">Час из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>МИНУТА(...)</code></td>
+<td style="text-align: left;"><code>MINUTE(...)</code></td>
+<td style="text-align: left;">Минута из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СЕКУНДА(...)</code></td>
+<td style="text-align: left;"><code>SECOND(...)</code></td>
+<td style="text-align: left;">Секунда из даты</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ДОБАВИТЬКДАТЕ(..., ДЕНЬ, N)</code></td>
+<td style="text-align: left;"><code>DATEADD(..., DAY, N)</code></td>
+<td style="text-align: left;">Добавление к дате</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>РАЗНОСТЬДАТ(..., ..., ДЕНЬ)</code></td>
+<td style="text-align: left;"><code>DATEDIFF(..., ..., DAY)</code></td>
+<td style="text-align: left;">Разность дат</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8_1">8. Строковые функции в запросах</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская функция</th>
+<th style="text-align: left;">Английская функция</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ПОДСТРОКА(..., Начало, Длина)</code></td>
+<td style="text-align: left;"><code>SUBSTRING(..., Start, Length)</code></td>
+<td style="text-align: left;">Подстрока</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>СТРОКА(...)</code></td>
+<td style="text-align: left;"><code>STRING(...)</code></td>
+<td style="text-align: left;">Преобразование в строку</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ВЫРАЗИТЬ(... КАК Строка(100))</code></td>
+<td style="text-align: left;"><code>CAST(... AS String(100))</code></td>
+<td style="text-align: left;">Приведение типа</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9_1">9. Условные функции в запросах</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русская функция</th>
+<th style="text-align: left;">Английская функция</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ВЫБОР КОГДА ... ТОГДА ... ИНАЧЕ ... КОНЕЦ</code></td>
+<td style="text-align: left;"><code>CASE WHEN ... THEN ... ELSE ... END</code></td>
+<td style="text-align: left;">Условное выражение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЕСТЬNULL(..., ...)</code></td>
+<td style="text-align: left;"><code>ISNULL(..., ...)</code></td>
+<td style="text-align: left;">Замена NULL на значение</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПРЕДСТАВЛЕНИЕ(...)</code></td>
+<td style="text-align: left;"><code>PRESENTATION(...)</code></td>
+<td style="text-align: left;">Строковое представление ссылки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ПРЕДСТАВЛЕНИЕССЫЛКИ(...)</code></td>
+<td style="text-align: left;"><code>PRESENTATIONOFREF(...)</code></td>
+<td style="text-align: left;">Представление ссылки</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ТИПЗНАЧЕНИЯ(...)</code></td>
+<td style="text-align: left;"><code>VALUETYPE(...)</code></td>
+<td style="text-align: left;">Тип значения</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ЗНАЧЕНИЕ(...)</code></td>
+<td style="text-align: left;"><code>VALUE(...)</code></td>
+<td style="text-align: left;">Литерал предопределённого значения</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10">10. Виртуальные таблицы</h2>
 <table>
 <thead>
 <tr>
@@ -1436,14 +2296,10 @@
 <td style="text-align: left;"><code>InformationRegister.SliceFirst</code></td>
 <td style="text-align: left;">Срез первых значений</td>
 </tr>
-<tr>
-<td style="text-align: left;"><code>РегистрСведений.Подчиненные</code></td>
-<td style="text-align: left;"><code>InformationRegister.Slave</code></td>
-<td style="text-align: left;">Подчинённые записи</td>
-</tr>
 </tbody>
 </table>
-<h2 id="8_1">8. Виды итогов</h2>
+<!-- НОВОЕ: Исправлено — убрана несуществующая таблица -->
+<h2 id="11_1">11. Виды итогов</h2>
 <table>
 <thead>
 <tr>
@@ -1470,7 +2326,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="9_1">9. Псевдонимы таблиц и полей</h2>
+<h2 id="12">12. Псевдонимы таблиц и полей</h2>
 <table>
 <thead>
 <tr>
@@ -1486,14 +2342,195 @@
 <td style="text-align: left;">Присвоение псевдонима</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>ИЗМЕНИТЬ</code></td>
-<td style="text-align: left;"><code>CHANGE</code></td>
-<td style="text-align: left;">Изменение таблицы (во временных таблицах)</td>
-</tr>
-<tr>
 <td style="text-align: left;"><code>ИНДЕКСИРОВАТЬ</code></td>
 <td style="text-align: left;"><code>INDEX</code></td>
 <td style="text-align: left;">Индексация временной таблицы</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Параметры виртуальных таблиц -->
+<h2 id="13">13. Параметры виртуальных таблиц</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Русский параметр</th>
+<th style="text-align: left;">Английский параметр</th>
+<th style="text-align: left;">Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>Период</code></td>
+<td style="text-align: left;"><code>Period</code></td>
+<td style="text-align: left;">Период среза/остатков</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Условие</code></td>
+<td style="text-align: left;"><code>Condition</code></td>
+<td style="text-align: left;">Отбор записей</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>НачалоПериода</code></td>
+<td style="text-align: left;"><code>StartPeriod</code></td>
+<td style="text-align: left;">Начало периода оборотов</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>КонецПериода</code></td>
+<td style="text-align: left;"><code>EndPeriod</code></td>
+<td style="text-align: left;">Конец периода оборотов</td>
+</tr>
+</tbody>
+</table>
+<!-- НОВОЕ: Примеры запросов -->
+<h2 id="14">14. Примеры запросов</h2>
+<p><strong>Русский:</strong></p>
+<pre><code class="language-1c">ВЫБРАТЬ
+    Номенклатура.Ссылка КАК Ссылка,
+    Номенклатура.Наименование КАК Наименование,
+    ЕСТЬNULL(Остатки.КоличествоОстаток, 0) КАК Остаток
+ИЗ
+    Справочник.Номенклатура КАК Номенклатура
+    ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Остатки КАК Остатки
+    ПО Номенклатура.Ссылка = Остатки.Номенклатура
+ГДЕ
+    НЕ Номенклатура.ПометкаУдаления
+УПОРЯДОЧИТЬ ПО
+    Номенклатура.Наименование
+</code></pre>
+<p><strong>English:</strong></p>
+<pre><code class="language-1c">SELECT
+    Goods.Ref AS Ref,
+    Goods.Name AS Name,
+    ISNULL(Balances.QuantityBalance, 0) AS Balance
+FROM
+    Catalog.Goods AS Goods
+    LEFT JOIN AccumulationRegister.GoodsInWarehouses.Balances AS Balances
+    ON Goods.Ref = Balances.Goods
+WHERE
+    NOT Goods.DeletionMark
+ORDER BY
+    Goods.Name
+</code></pre>
+<hr />
+<p><strong>Ключевые добавления:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Раздел</th>
+<th>Что добавлено</th>
+<th>Зачем</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Операторы языка</strong></td>
+<td><code>ВызватьИсключение</code>, <code>Выполнить</code>, <code>Вычислить</code>, <code>Перейти</code>, устаревшие модальные методы</td>
+<td>Полнота языковых конструкций</td>
+</tr>
+<tr>
+<td><strong>Доп. типы данных</strong></td>
+<td><code>Число</code>, <code>Строка</code>, <code>Дата</code>, <code>Булево</code>, <code>Неопределено</code>, <code>NULL</code>, <code>Тип</code>, <code>UUID</code>, <code>ДвоичныеДанные</code>, <code>Картинка</code></td>
+<td>Базовые типы, которые часто нужны</td>
+</tr>
+<tr>
+<td><strong>Методы коллекций</strong></td>
+<td><code>НайтиСортированный</code>, <code>Сдвинуть</code>, <code>ПолучитьИндекс</code>, <code>Копировать</code>, <code>Скопировать</code>, <code>СкопироватьКолонки</code>, <code>ЗагрузитьКолонку</code>, <code>ВыгрузитьКолонку</code>, <code>ЗаполнитьЗначения</code>, <code>Переместить</code>, <code>ВыбратьСтроку</code></td>
+<td>Расширенная работа с ТЗ и массивами</td>
+</tr>
+<tr>
+<td><strong>Методы колонок ТЗ</strong></td>
+<td><code>Колонки.*</code></td>
+<td>Работа со структурой таблицы</td>
+</tr>
+<tr>
+<td><strong>COM и внешние компоненты</strong></td>
+<td><code>СоздатьОбъект</code>, <code>ПолучитьCOMОбъект</code>, <code>ПодключитьВнешнююКомпоненту</code></td>
+<td>Интеграция с Windows/COM</td>
+</tr>
+<tr>
+<td><strong>Предопределённые данные</strong></td>
+<td><code>ПредопределённоеЗначение</code>, <code>ПолучитьИмяПредопределенного</code>, <code>ПолучитьСсылкуПредопределенного</code></td>
+<td>Работа с предопределёнными элементами</td>
+</tr>
+<tr>
+<td><strong>Доп. элементы форм</strong></td>
+<td><code>Поле текстового документа</code>, <code>Поле HTML</code>, <code>Поле географической схемы</code>, <code>Поле календаря</code>, <code>Поле индикатора</code> и др.</td>
+<td>Полный перечень элементов управления</td>
+</tr>
+<tr>
+<td><strong>Доп. свойства элементов</strong></td>
+<td><code>АвтоОтметкаНезаполненного</code>, <code>РежимПароля</code>, <code>КнопкаВыбора</code>, <code>РастягиватьПоГоризонтали</code> и др.</td>
+<td>Часто используемые свойства</td>
+</tr>
+<tr>
+<td><strong>Доп. методы формы</strong></td>
+<td><code>Новый РеквизитФормы</code>, <code>Новый ОписаниеТипов</code>, квалификаторы</td>
+<td>Программное создание реквизитов</td>
+</tr>
+<tr>
+<td><strong>Доп. свойства формы</strong></td>
+<td><code>ТекущиеДанные</code>, <code>РежимОткрытияОкна</code>, <code>ПоложениеКоманднойПанели</code></td>
+<td>Управление формой</td>
+</tr>
+<tr>
+<td><strong>Доп. события</strong></td>
+<td><code>ПриСозданииНаСервере</code>, <code>ОбработкаВыбора</code>, <code>ОбработкаОповещения</code>, <code>НачалоВыбора</code>, <code>АвтоПодбор</code> и др.</td>
+<td>Полный перечень событий</td>
+</tr>
+<tr>
+<td><strong>Метаданные</strong></td>
+<td><code>Метаданные.*</code>, <code>ПолноеИмя</code>, <code>Синоним</code>, <code>Комментарий</code></td>
+<td>Работа с метаданными</td>
+</tr>
+<tr>
+<td><strong>БСП</strong></td>
+<td><code>ЗначениеРеквизитаОбъекта</code>, <code>СкопироватьРекурсивно</code>, <code>СтрокаЛатиницей</code>, <code>ПодставитьПараметрыВСтроку</code> и др.</td>
+<td>Популярные функции стандартной библиотеки</td>
+</tr>
+<tr>
+<td><strong>Файлы и потоки</strong></td>
+<td><code>ДвоичныеДанные</code>, <code>ПотокВПамяти</code>, <code>ЧтениеДанных</code>, <code>ЧтениеXML</code>, <code>ЧтениеJSON</code> и др.</td>
+<td>Работа с файлами, XML, JSON</td>
+</tr>
+<tr>
+<td><strong>HTTP и интеграция</strong></td>
+<td><code>HTTPСоединение</code>, <code>HTTPЗапрос</code>, <code>ИнтернетПочта</code>, <code>WSПрокси</code></td>
+<td>Веб-сервисы и почта</td>
+</tr>
+<tr>
+<td><strong>Системные перечисления</strong></td>
+<td><code>ВидСравнения</code>, <code>РежимДиалогаВопрос</code>, <code>РежимОткрытияОкнаФормы</code>, <code>РежимЗаписиДокумента</code> и др.</td>
+<td>Часто используемые enum</td>
+</tr>
+<tr>
+<td><strong>Доп. операторы запросов</strong></td>
+<td><code>ВЫБРАТЬ РАЗРЕШЕННЫЕ</code>, <code>ВЫБРАТЬ ПЕРВЫЕ</code>, <code>ПОМЕСТИТЬ</code>, <code>УНИЧТОЖИТЬ</code></td>
+<td>Расширенный синтаксис запросов</td>
+</tr>
+<tr>
+<td><strong>Функции дат в запросах</strong></td>
+<td><code>НАЧАЛОПЕРИОДА</code>, <code>КОНЕЦПЕРИОДА</code>, <code>ГОД</code>, <code>МЕСЯЦ</code>, <code>ДОБАВИТЬКДАТЕ</code>, <code>РАЗНОСТЬДАТ</code></td>
+<td>Работа с датами в запросах</td>
+</tr>
+<tr>
+<td><strong>Строковые функции запросов</strong></td>
+<td><code>ПОДСТРОКА</code>, <code>ВЫРАЗИТЬ</code></td>
+<td>Преобразование типов и строк</td>
+</tr>
+<tr>
+<td><strong>Условные функции запросов</strong></td>
+<td><code>ВЫБОР</code>, <code>ЕСТЬNULL</code>, <code>ПРЕДСТАВЛЕНИЕ</code>, <code>ТИПЗНАЧЕНИЯ</code>, <code>ЗНАЧЕНИЕ</code></td>
+<td>Условия и преобразования</td>
+</tr>
+<tr>
+<td><strong>Параметры вирт. таблиц</strong></td>
+<td><code>Период</code>, <code>Условие</code>, <code>НачалоПериода</code>, <code>КонецПериода</code></td>
+<td>Параметры виртуальных таблиц</td>
+</tr>
+<tr>
+<td><strong>Примеры запросов</strong></td>
+<td>Полный пример на русском и английском</td>
+<td>Наглядное сравнение синтаксиса</td>
 </tr>
 </tbody>
 </table>
