@@ -146,10 +146,62 @@
 <li>
 <p><a href="https://its.1c.ru/db/v8std#content:469:hdoc">Правила создания общих модулей</a>, <a href="https://its.1c.ru/db/v8std#content:456:hdoc">Тексты модулей</a></p>
 </li>
+</ul>
+<p><strong>Шаблон (заготовка для копирования) разделов для общих модулей</strong></p>
+<blockquote>
+<p>#Region Public</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Internal</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Private</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+</blockquote>
+<p><strong>Шаблон оформления разделов для модулей объектов, менеджеров, наборов записей, обработок, отчетов и т.п.:</strong></p>
+<blockquote>
+<p>#Region Variables</p>
+<p>#EndRegion</p>
+<p>#Region Public</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region EventHandlers</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Internal</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Private</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Initialize</p>
+<p>#EndRegion</p>
+</blockquote>
+<p><strong>Шаблон оформления разделов для модулей форм:</strong></p>
+<blockquote>
+<p>#Region Variables</p>
+<p>#EndRegion</p>
+<p>#Region FormEventHandlers</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region FormHeaderItemsEventHandlers</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region FormTableItemsEventHandlers<FormTableName></p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region FormCommandsEventHandlers</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+<p>#Region Private</p>
+<p>// Enter code here.</p>
+<p>#EndRegion</p>
+</blockquote>
+<ul>
 <li><a href="https://its.1c.ru/db/v8std#content:647:hdoc">Имена процедур и функций</a>, <a href="https://its.1c.ru/db/v8std/content/454/hdoc">Правила образования имен переменных</a>. При доработке в типовых объектах все новые процедуры и функции создаются с префиксом проекта, например <code>ns_Documents</code>.</li>
 <li><a href="https://its.1c.ru/db/v8std#content:455:hdoc">Структура модуля</a>, <a href="https://its.1c.ru/db/v8std#content:439:hdoc">Директивы компиляции и инструкции препроцессора</a>. Все модули должны быть с оформлением областями.</li>
 <li><a href="https://its.1c.ru/db/v8std#content:689:hdoc">Настройка ролей и прав доступа</a>.</li>
-<li></li>
 </ul>
 <h4 id="_3">Соглашение об именовании переменных и подпрограмм</h4>
 <table>
